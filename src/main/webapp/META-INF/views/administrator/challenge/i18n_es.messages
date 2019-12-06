@@ -1,0 +1,41 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator creates a challenge.
+administrator.challenge.form.label.title = Título:
+administrator.challenge.form.label.deadline = Fecha de vencimiento:
+administrator.challenge.form.label.description = Descripción:
+
+administrator.challenge.form.label.goldGoal = Objetivo de oro:
+administrator.challenge.form.label.goldReward: Recompensa de oro:
+
+administrator.challenge.form.label.silverGoal = Objetivo de plata:
+administrator.challenge.form.label.silverReward: Recompensa de plata:
+
+administrator.challenge.form.label.bronzeGoal = Objetivo de bronce:
+administrator.challenge.form.label.bronzeReward: Recompensa de bronce:
+
+administrator.challenge.form.label.goalReward = Objetivo-Recompensa:
+
+administrator.challenge.error.deadline = La fecha de vencimiento debe estar en el futuro
+administrator.challenge.error.goldCurrency = La moneda debe ser EUR o €
+administrator.challenge.error.silverCurrency = La moneda debe ser EUR o €
+administrator.challenge.error.bronzeCurrency = La moneda debe ser EUR o €
+administrator.challenge.error.rangeAmountBronze = La recompensa de bronce debe ser menor que las de plata y oro
+administrator.challenge.error.rangeAmountSilver = La recompensa de plata debe ser menor que la de oro
+
+administrator.challenge.form.button.create = Crear reto
+administrator.challenge.form.button.update = Actualizar reto
+administrator.challenge.form.button.delete = Eliminar reto
+administrator.challenge.form.button.return = Volver
+
+########################################### Feature: administrador lista retos.
+administrator.challenge.list.label.deadline = Fecha de vencimiento
+administrator.challenge.list.label.title = Titulo

@@ -1,0 +1,31 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator shows a commercial banner.
+administrator.commercialBanner.form.label.picture = Picture:
+administrator.commercialBanner.form.label.slogan = Slogan:
+administrator.commercialBanner.form.label.url = URL:
+administrator.commercialBanner.form.label.holder = Holder:
+administrator.commercialBanner.form.label.expirationMonth = Expiration month:
+administrator.commercialBanner.form.label.expirationYear = Expiration year:
+administrator.commercialBanner.form.label.creditCardNumber = Credit card number:
+administrator.commercialBanner.form.label.brand = Brand:
+administrator.commercialBanner.form.label.CVV = CVV:
+administrator.commercialBanner.form.button.create = Create commercial banner
+administrator.commercialBanner.form.button.update = Update commercial banner
+administrator.commercialBanner.form.button.delete = Delete commercial banner
+administrator.commercialBanner.form.button.return = Return
+
+administrator.commercialBanner.error.expirationYear = The year must be equal or posterior than current year
+administrator.commercialBanner.error.expirationMonth = The month must be equal or posterior than current month
+
+########################################### Feature: administrator lists commercial banners.
+administrator.commercialBanner.list.label.slogan = Slogan
+administrator.commercialBanner.list.label.url = URL

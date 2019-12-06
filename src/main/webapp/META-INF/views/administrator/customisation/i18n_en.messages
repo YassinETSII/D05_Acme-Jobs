@@ -1,0 +1,18 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator update the customisation parameters.
+administrator.customisation.form.label.spamWords = Spam words:
+administrator.customisation.form.label.spamThreshold = Spam threshold in percent:
+
+administrator.customisation.error.existingWord = The spam word you are trying to enter already exists
+
+administrator.customisation.form.button.update = Update parameters
+administrator.customisation.form.button.return = Return

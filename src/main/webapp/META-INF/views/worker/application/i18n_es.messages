@@ -1,0 +1,28 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: trabajador muestra una aplicación.
+worker.application.form.label.reference = Referencia:
+worker.application.form.label.moment = Momento de creación:
+worker.application.form.label.status = Estado:
+worker.application.form.label.statement = Declaración:
+worker.application.form.label.skills = Habilidades:
+worker.application.form.label.qualifications = Aptitudes:
+worker.application.form.label.job.reference = Referencia del trabajo:
+
+worker.application.form.label.job = Mostrar trabajo
+
+worker.application.form.button.return = Volver
+
+########################################### Feature: trabajador lista aplicaciones.
+worker.application.list.label.reference = Referencia
+worker.application.list.label.moment = Momento de creación
+worker.application.list.label.status = Estado
+

@@ -1,0 +1,34 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: anonymous creates a bulletin (Yassin Lalj).
+anonymous.laljbulletin.form.label.event = Event:
+anonymous.laljbulletin.form.label.momentOfEvent = Moment of event:
+anonymous.laljbulletin.form.label.location = Location:
+anonymous.laljbulletin.form.label.cost = Cost:
+anonymous.laljbulletin.form.button.create = Create this bulletin
+anonymous.laljbulletin.form.button.return = Return
+
+anonymous.laljbulletin.error.momentOfEvent = The moment of the event must be in future
+anonymous.laljbulletin.error.currency = Currency must be EUR
+
+anonymous.laljbulletin.form.initialMessage = \
+	In this form you can create an informative bulletin about \
+	an event in the city of Seville.
+
+########################################### Feature: anonymous lists bulletins (Yassin Lalj).
+anonymous.laljbulletin.list.label.event = Event
+anonymous.laljbulletin.list.label.momentOfEvent = Moment of event
+anonymous.laljbulletin.list.label.location = Location
+anonymous.laljbulletin.list.label.cost = Cost
+
+anonymous.laljbulletin.list.initialMessage = \
+	Here is the list of bulletins about events \
+	in the city of Seville.

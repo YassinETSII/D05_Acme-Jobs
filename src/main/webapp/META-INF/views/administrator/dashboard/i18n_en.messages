@@ -1,0 +1,30 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator displays dashboard.
+administrator.dashboard.form.label.numberAnnouncements = Number of announcements:
+administrator.dashboard.form.label.numberCompanyRecords = Number of Company records:
+administrator.dashboard.form.label.numberInvestorRecords = Number of Investor records:
+
+administrator.dashboard.form.label.minimumNumberOfRewardsOfActiveRequests = Minimum number of rewards of active requests:
+administrator.dashboard.form.label.maximumNumberOfRewardsOfActiveRequests = Maximum number of rewards of active requests:
+administrator.dashboard.form.label.averageNumberOfRewardsOfActiveRequests = Average number of rewards of active requests:
+administrator.dashboard.form.label.standardDesviationNumberOfRewardsOfActiveRequests = Standard desviation number of rewards of active requests:
+
+administrator.dashboard.form.label.minimumNumberOfRewardsOfActiveOffers = Minimum number of rewards of active offers:
+administrator.dashboard.form.label.maximumNumberOfRewardsOfActiveOffers = Maximum number of rewards of active offers:
+administrator.dashboard.form.label.averageNumberOfRewardsOfActiveOffers = Average number of rewards of active offers:
+administrator.dashboard.form.label.standardDesviationNumberOfRewardsOfActiveOffers = Standard desviation number of rewards of active offers:
+
+administrator.dashboard.form.label.averageNumberOfJobsPerEmployer = Average number of jobs per employer:
+administrator.dashboard.form.label.averageNumberOfApplicationsPerEmployer = Average number of applications per employer:
+administrator.dashboard.form.label.averageNumberOfApplicationsPerWorker = Average number of applications per worker:
+
+administrator.dashboard.form.button.return = Return

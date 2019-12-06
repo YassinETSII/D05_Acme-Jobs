@@ -1,0 +1,19 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: autenticado lista deberes de un trabajo.
+authenticated.duty.list.label.title = Título
+
+########################################### Feature: autenticado muestra un deber de una lista de deberes de un trabajo.
+authenticated.duty.form.label.title = Título:
+authenticated.duty.form.label.description = Descripción:
+authenticated.duty.form.label.timePercentage = Porcentaje de tiempo en cada semana:
+
+authenticated.duty.form.button.return = Volver

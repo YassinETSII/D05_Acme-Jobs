@@ -1,0 +1,29 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator shows a company record.
+administrator.companyRecord.form.label.company = Company:
+administrator.companyRecord.form.label.sector = Sector:
+administrator.companyRecord.form.label.ceo = CEO:
+administrator.companyRecord.form.label.description = Description:
+administrator.companyRecord.form.label.web = Web Site:
+administrator.companyRecord.form.label.phone = Phone number:
+administrator.companyRecord.form.label.email = Email:
+administrator.companyRecord.form.label.stars = Stars:
+administrator.companyRecord.form.label.incorporated = Incorporated
+administrator.companyRecord.form.button.create = Create company record
+administrator.companyRecord.form.button.update = Update company record
+administrator.companyRecord.form.button.delete = Delete company record
+administrator.companyRecord.form.button.return = Return
+administrator.companyRecord.error.administratorPhoneFormat = The phone must have the pattern: +999 (9999) 999999
+
+########################################### Feature: administrator lists company records.
+administrator.companyRecord.list.label.company = Company
+administrator.companyRecord.list.label.sector = Sector

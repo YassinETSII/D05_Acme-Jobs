@@ -1,0 +1,20 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: authenticated shows an investor record.
+authenticated.investorRecord.form.label.investor = Investor:
+authenticated.investorRecord.form.label.sector = Sector:
+authenticated.investorRecord.form.label.statement = Statement:
+authenticated.investorRecord.form.label.stars = Stars:
+authenticated.investorRecord.form.button.return = Return
+
+########################################### Feature: authenticated lists investor records.
+authenticated.investorRecord.list.label.investor = Investor
+authenticated.investorRecord.list.label.sector = Sector

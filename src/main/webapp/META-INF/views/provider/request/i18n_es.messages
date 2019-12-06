@@ -1,0 +1,27 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: proveedor crea una solicitud.
+provider.request.label.title = Título:
+provider.request.label.deadline = Fecha de vencimiento:
+provider.request.label.text = Texto:
+provider.request.label.reward = Recompensa:
+provider.request.label.ticker = Ticker:
+
+provider.request.button.create = Crear solicitud
+provider.request.button.return = Volver
+
+provider.request.label.accept = Acepto crear esta solicitud
+
+provider.request.error.deadline = La fecha de vencimiento debe estar en el futuro
+provider.request.error.providerTickerFormat = Debe encajar en el patrón RXXXX-99999
+provider.request.error.must-accept = Debe marcar la casilla
+provider.request.error.currency = La moneda debe ser EUR o €
+provider.request.error.tickerDuplicated = Este ticker ya está en uso

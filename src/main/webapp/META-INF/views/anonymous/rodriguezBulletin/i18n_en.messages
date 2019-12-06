@@ -1,0 +1,28 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: anonymous creates a bulletin (Alfonso Rodríguez).
+anonymous.rodriguezBulletin.form.label.informer = Informer:
+anonymous.rodriguezBulletin.form.label.type = Attack Type:
+anonymous.rodriguezBulletin.form.button.create = Create Bulletin
+anonymous.rodriguezBulletin.form.button.return = Return
+
+anonymous.rodriguezBulletin.form.initialMessage = \
+	In this form you can create an informative bulletin about \
+	a detected attack on the system.
+	
+########################################### Feature: anonymous lists bulletins (Alfonso Rodríguez).
+anonymous.rodriguezBulletin.list.label.bulletinMoment = Moment
+anonymous.rodriguezBulletin.list.label.informer = Informer
+anonymous.rodriguezBulletin.list.label.type = Attack Type
+
+anonymous.rodriguezBulletin.list.initialMessage = \
+	Here is the list of bulletins about attacks \
+	detected in the system.

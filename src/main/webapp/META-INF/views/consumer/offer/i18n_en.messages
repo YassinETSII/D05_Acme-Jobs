@@ -1,0 +1,30 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: consumer creates an offer.
+consumer.offer.label.title = Title:
+consumer.offer.label.deadline = Deadline:
+consumer.offer.label.text = Text:
+consumer.offer.label.minReward = Minimum reward:
+consumer.offer.label.maxReward = Maximum reward:
+consumer.offer.label.ticker = Ticker:
+
+consumer.offer.button.create = Create offer
+consumer.offer.button.return = Return
+
+consumer.offer.label.accept = I do accept create this offer
+
+consumer.offer.error.deadline = Deadline must be in future
+consumer.offer.error.consumerTickerFormat = Must match pattern OXXXX-99999
+consumer.offer.error.tickerDuplicated = This ticker is already in use
+consumer.offer.error.must-accept = Must check the box
+consumer.offer.error.minCurrency = Currency must be EUR or €
+consumer.offer.error.maxCurrency = Currency must be EUR or €
+consumer.offer.error.rangeAmount = The minimum reward must be less than maximum reward

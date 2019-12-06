@@ -1,0 +1,41 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator creates a challenge.
+administrator.challenge.form.label.title = Title:
+administrator.challenge.form.label.deadline = Deadline:
+administrator.challenge.form.label.description = Description:
+
+administrator.challenge.form.label.goldGoal = Gold goal:
+administrator.challenge.form.label.goldReward: Gold reward:
+
+administrator.challenge.form.label.silverGoal = Silver goal:
+administrator.challenge.form.label.silverReward: Silver reward:
+
+administrator.challenge.form.label.bronzeGoal = Bronze goal:
+administrator.challenge.form.label.bronzeReward: Bronze reward:
+
+administrator.challenge.form.label.goalReward = Goal-Reward:
+
+administrator.challenge.error.deadline = Deadline must be in future
+administrator.challenge.error.goldCurrency = Currency must be EUR or €
+administrator.challenge.error.silverCurrency = Currency must be EUR or €
+administrator.challenge.error.bronzeCurrency = Currency must be EUR or €
+administrator.challenge.error.rangeAmountBronze = Bronze reward must be less than silver and gold rewards
+administrator.challenge.error.rangeAmountSilver = Silver reward must be less than gold reward
+
+administrator.challenge.form.button.create = Create challenge
+administrator.challenge.form.button.update = Update challenge
+administrator.challenge.form.button.delete = Delete challenge
+administrator.challenge.form.button.return = Return
+
+########################################### Feature: administrator lists challenges.
+administrator.challenge.list.label.deadline = Deadline
+administrator.challenge.list.label.title = Title

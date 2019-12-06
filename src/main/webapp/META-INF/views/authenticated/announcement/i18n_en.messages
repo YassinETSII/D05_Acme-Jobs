@@ -1,0 +1,20 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: authenticated shows an announcement.
+authenticated.announcement.form.label.title = Title:
+authenticated.announcement.form.label.moment = Moment of creation:
+authenticated.announcement.form.label.moreInfo = More info:
+authenticated.announcement.form.label.text = Text:
+authenticated.announcement.form.button.return = Return
+
+########################################### Feature: authenticated lists announcements.
+authenticated.announcement.list.label.moment = Moment of creation
+authenticated.announcement.list.label.title = Title

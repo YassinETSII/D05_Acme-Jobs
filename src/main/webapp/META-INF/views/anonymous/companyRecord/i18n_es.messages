@@ -1,0 +1,24 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: anónimo muestra un registro de compañía.
+anonymous.companyRecord.form.label.company = Compañía:
+anonymous.companyRecord.form.label.sector = Sector:
+anonymous.companyRecord.form.label.ceo = CEO:
+anonymous.companyRecord.form.label.description = Descripción:
+anonymous.companyRecord.form.label.web = Sitio web:
+anonymous.companyRecord.form.label.phone = Número de teléfono:
+anonymous.companyRecord.form.label.email = Email:
+anonymous.companyRecord.form.label.stars = Estrellas:
+anonymous.companyRecord.form.button.return = Volver
+
+########################################### Feature: anónimo lista registros de compañías.
+anonymous.companyRecord.list.label.company = Compañía
+anonymous.companyRecord.list.label.sector = Sector

@@ -1,0 +1,159 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.banner.welcome #######################################################
+
+master.banner.background = #414141
+
+# master.welcome ##############################################################
+
+master.welcome.title = Welcome!
+master.welcome.text = \
+	Welcome to Acme Jobs! This place will help you to find an appropriate job \
+	in order to your qualifications and offer jobs to other people. \
+	Please be welcome!
+
+# master.menu #################################################################
+
+master.menu.home = Home
+master.menu.sign-up = Sign up
+master.menu.sign-in = Sign in
+master.menu.sign-out = Sign out
+
+# master.menu.authenticated ##################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.announcement.list = List announcements
+master.menu.authenticated.companyRecord.list = List company records
+master.menu.authenticated.investorRecord.list = List investor records
+master.menu.authenticated.request.list = List requests
+master.menu.authenticated.offer.list = List offers
+master.menu.authenticated.challenge.list = List challenges
+master.menu.authenticated.job.list = List jobs
+master.menu.authenticated.messageThread.list = List message threads
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous.panel1 = Anonymous Panel 1
+master.menu.anonymous.panel2 = Anonymous Panel 2
+master.menu.anonymous.favourite-link1 = Yassin's link 
+master.menu.anonymous.favourite-link2 = Alfonso's link
+master.menu.anonymous.shout.list = List shouts
+master.menu.anonymous.shout.create = Shout!
+master.menu.anonymous.laljbulletin.list = List Lalj's Bulletin
+master.menu.anonymous.laljbulletin.create = Create Lalj's Bulletin
+master.menu.anonymous.rodriguezbulletin.list = List Rodriguez's Bulletin
+master.menu.anonymous.rodriguezbulletin.create = Create Rodriguez's Bulletin
+master.menu.anonymous.announcement.list = List announcements
+master.menu.anonymous.companyRecord.list = List company records
+master.menu.anonymous.companyRecord.listTop = List top company records
+master.menu.anonymous.investorRecord.list = List investor records
+master.menu.anonymous.investorRecord.listTop = List top investor records
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator.panel1 = Administrator Panel 1
+master.menu.administrator.panel2 = Administrator Panel 2
+master.menu.administrator.customisation.form = Customisation
+master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.announcement.list = List announcements
+master.menu.administrator.announcement.create = Create announcement
+master.menu.administrator.companyRecord.list = List company records
+master.menu.administrator.companyRecord.create = Create company record
+master.menu.administrator.investorRecord.list = List investor records
+master.menu.administrator.investorRecord.create = Create investor record
+master.menu.administrator.commercialBanner.list = List commercial banners
+master.menu.administrator.commercialBanner.create = Create commercial banner
+master.menu.administrator.nonCommercialBanner.list = List non commercial banners
+master.menu.administrator.nonCommercialBanner.create = Create non commercial banner
+master.menu.administrator.challenge.list = List challenges
+master.menu.administrator.challenge.create = Create challenge
+master.menu.administrator.dashboard.form = Display dashboard
+master.menu.administrator.chart.form = Display charts
+master.menu.administrator.shutdown = Shut down
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Provider
+master.menu.provider.favourite-link = Favourite link
+master.menu.provider.request.create = Create request
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Consumer
+master.menu.consumer.favourite-link = Favourite link
+master.menu.consumer.offer.create = Create offer
+
+# master.menu.employer ##########################################################
+
+master.menu.employer = Employer
+master.menu.employer.job.listMine = List my jobs
+master.menu.employer.application.listMine = List my applications
+
+# master.menu.worker ##########################################################
+
+master.menu.worker = Worker
+master.menu.worker.application.list-mine = List my applications
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.job.list-mine = List jobs I recorded an audit
+master.menu.auditor.job.list-not-mine = List jobs I didn't record an audit
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.commercialBanner.list-mine = List my commercial banners
+master.menu.sponsor.nonCommercialBanner.list-mine = List my non commercial banners
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Account
+master.menu.user-account.general-data = General data
+master.menu.user-account.provider = Provider data
+master.menu.user-account.become-provider = Become a provider
+master.menu.user-account.consumer = Consumer data
+master.menu.user-account.become-consumer = Become a consumer
+
+# master.footer ###############################################################
+
+master.footer.title.about = About us
+master.footer.label.company = Company
+master.footer.label.license = License
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Languages
+master.footer.label.english = English
+master.footer.label.spanish = Spanish
+
+# master.company ##############################################################
+
+master.company.title = Acme Corporation.
+master.company.text = \
+	Acme Jobs, Inc. is a fictitious company that provides a free service \
+	so you can find a job or offer one to other workers.
+master.company.name = Acme Jobs, Inc.
+master.company.address = Av. Reina Mercedes s/n, 41012 Sevilla, Andalucía, Spain
+master.company.phone = +(34) 954556817
+master.company.email group5DP1@gmail.com
+
+# master.license ##############################################################
+
+master.license.title = License
+master.license.text = \
+	You may use this system free of charge, as long as you carefully observe the \
+	existing applicable laws.  Please, note that we do not share any information \
+	about you with any other company.  We only use three cookies, namely: \
+	"JSESSIONID" to identify your work session, "remember" to let you authenticate \
+	automatically for a maximum of 31 days, and "language" to store your language \
+	preferences. Additionally, we store an item called "returnStack" in your browser's \
+	local storage to keep track of the document to which some buttons must return.

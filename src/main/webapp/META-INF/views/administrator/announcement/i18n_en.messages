@@ -1,0 +1,23 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: administrator shows an announcement.
+administrator.announcement.form.label.title = Title:
+administrator.announcement.form.label.moment = Moment of creation:
+administrator.announcement.form.label.moreInfo = More info:
+administrator.announcement.form.label.text = Text:
+administrator.announcement.form.button.create = Create announcement
+administrator.announcement.form.button.update = Update announcement
+administrator.announcement.form.button.delete = Delete announcement
+administrator.announcement.form.button.return = Return
+
+########################################### Feature: administrator lists announcements.
+administrator.announcement.list.label.moment = Moment of creation
+administrator.announcement.list.label.title = Title

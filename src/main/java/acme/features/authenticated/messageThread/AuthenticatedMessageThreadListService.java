@@ -47,6 +47,9 @@ public class AuthenticatedMessageThreadListService implements AbstractListServic
 
 		int id = request.getPrincipal().getActiveRoleId();
 		result = this.repository.findManyMessageThreadsByAuthenticatedId(id);
+		for (MessageThread messageThread : result) {
+			messageThread.getUsersInvolved().size();
+		}
 		return result;
 
 	}

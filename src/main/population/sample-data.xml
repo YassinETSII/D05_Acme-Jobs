@@ -860,6 +860,13 @@
 	<bean id="messageThread01" class="acme.entities.messageThreads.MessageThread">
 		<property name="title" value="Title 1"/>
 		<property name="moment" value="2017/12/11 23:59"/>
+		<property name="usersInvolved">
+			<list>
+				<ref bean="consumer1Authenticated"/>
+				<ref bean="provider1Authenticated"/>
+				<ref bean="employer1Authenticated"/>
+			</list>
+		</property>
 	</bean>
 	
 	<!-- Messages -->

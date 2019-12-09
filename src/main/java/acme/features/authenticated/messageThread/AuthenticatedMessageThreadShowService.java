@@ -15,6 +15,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
+import acme.framework.entities.UserRole;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -56,13 +57,25 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		request.unbind(entity, model, "title", "moment");
 
 		StringBuilder buffer;
-		Collection<Message> userNames = this.repository.findManyMessagesByMessageThreadId(entity.getId());
+		//		Collection<Message> userNames = this.repository.findManyMessagesByMessageThreadId(entity.getId());
+		//		buffer = new StringBuilder();
+		//		for (Message userName : userNames) {
+		//			buffer.append("[" + userName.getUser().getIdentity().getFullName() + "]");
+		//			buffer.append(" ");
+		//		}
+		Collection<UserRole> userNames = entity.getUsersInvolved();
 		buffer = new StringBuilder();
-		for (Message userName : userNames) {
-			buffer.append("[" + userName.getUser().getIdentity().getFullName() + "]");
+		for (UserRole userName : userNames) {
+			buffer.append("[" + userName.getIdentity().getFullName() + "]");
 			buffer.append(" ");
 		}
 		model.setAttribute("userNameList", buffer.toString());
+		//		Collection<UserRole> userNamesToInvolve = this.repository.findManyUsersToInvolve(entity.getId());
+		//		ArrayList<String> usersToInvolve = new ArrayList<>();
+		//		for (UserRole userNameToInvolve : userNamesToInvolve) {
+		//			usersToInvolve.add(userNameToInvolve.getIdentity().getFullName());
+		//		}
+		//		model.setAttribute("usersToInvolve", usersToInvolve);
 
 	}
 
@@ -75,6 +88,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneMessageThreadById(id);
+		result.getUsersInvolved().size();
 
 		return result;
 	}

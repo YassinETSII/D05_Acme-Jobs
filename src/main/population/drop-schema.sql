@@ -59,6 +59,10 @@
        drop 
        foreign key `FKik4epe9dp5q6uenarfyia7xin`;
 
+    alter table `message_thread_user_role` 
+       drop 
+       foreign key `FKb9t8utpqa9loo7b42r2hmmjk6`;
+
     alter table `non_commercial_banner` 
        drop 
        foreign key `FKpcpr0xb5k7s4rxv5pulstt5v9`;
@@ -120,6 +124,8 @@
     drop table if exists `message`;
 
     drop table if exists `message_thread`;
+
+    drop table if exists `message_thread_user_role`;
 
     drop table if exists `non_commercial_banner`;
 

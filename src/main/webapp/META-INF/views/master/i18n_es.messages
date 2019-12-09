@@ -37,6 +37,7 @@ master.menu.authenticated.request.list = Listar solicitudes
 master.menu.authenticated.offer.list = Listar ofertas
 master.menu.authenticated.challenge.list = Listar retos
 master.menu.authenticated.job.list = Listar trabajos
+master.menu.authenticated.messageThread.create = Crear hilo de mensajes
 master.menu.authenticated.messageThread.list = Listar hilos de mensaje
 
 # master.menu.anonymous #######################################################

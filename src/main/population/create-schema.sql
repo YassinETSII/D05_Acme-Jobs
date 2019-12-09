@@ -227,6 +227,11 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `message_thread_user_role` (
+       `message_thread_id` integer not null,
+        `users_involved_id` integer not null
+    ) engine=InnoDB;
+
     create table `non_commercial_banner` (
        `id` integer not null,
         `version` integer not null,
@@ -343,6 +348,9 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 create index IDXl7vmp7ocxxv2b7k83lu99fhqs on `lalj_bulletin` (`moment_of_event`);
+
+    alter table `message_thread_user_role` 
+       add constraint UK_9q6bus9s2aegkxyvh6rm4bonx unique (`users_involved_id`);
 create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
 
     alter table `offer` 
@@ -429,6 +437,11 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        add constraint `FKik4epe9dp5q6uenarfyia7xin` 
        foreign key (`user_id`) 
        references `authenticated` (`id`);
+
+    alter table `message_thread_user_role` 
+       add constraint `FKb9t8utpqa9loo7b42r2hmmjk6` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `non_commercial_banner` 
        add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 

@@ -29,11 +29,11 @@ public class Participation extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	Authenticated				participant;
+	private Authenticated				participant;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	MessageThread				thread;
+	private MessageThread				thread;
 
 }

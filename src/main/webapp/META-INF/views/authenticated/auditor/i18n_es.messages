@@ -9,12 +9,8 @@
 # they accept any liabilities with respect to them.
 
 ########################################### Feature: un autenticado puede pedir convertirse en auditor.
-authenticated.auditor.form.title.create = Convertirse en empleador
-authenticated.auditor.form.title.update = Actualizar datos del empleador
-
 authenticated.auditor.form.label.firm = Firma:
 authenticated.auditor.form.label.responsibilityStatement = Declaración de responsabilidad:
 
-authenticated.auditor.form.button.create = Registrar
-authenticated.auditor.form.button.update = Actualizar
+authenticated.auditor.form.button.update = Actualizar datos de empleador
 authenticated.auditor.form.button.return = Volver

@@ -1,5 +1,5 @@
 <%--
-- form.jsp
+- list.jsp
 -
 - Copyright (c) 2019 Rafael Corchuelo.
 -
@@ -15,10 +15,6 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
-	<acme:form-textbox code="authenticated.auditor.form.label.firm" path="firm"/>
-	<acme:form-textarea code="authenticated.auditor.form.label.responsibilityStatement" path="responsibilityStatement"/>
-	
-	<acme:form-submit code="authenticated.auditor.form.button.update" action="/authenticated/auditor/update"/>
-	<acme:form-return code="authenticated.auditor.form.button.return"/>
-</acme:form>
+<acme:list>
+	<acme:list-column code="administrator.auditorRequest.list.label.userName" path="user.identity.fullName" width="80%"/>
+</acme:list>

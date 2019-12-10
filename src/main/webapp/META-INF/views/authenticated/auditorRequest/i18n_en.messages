@@ -9,8 +9,8 @@
 # they accept any liabilities with respect to them.
 
 ########################################### Feature: an authenticated can request to become an auditor.
-authenticated.auditor.form.label.firm = Firm:
-authenticated.auditor.form.label.responsibilityStatement = Responsibility Statement:
+authenticated.auditorRequest.form.label.firm = Firm:
+authenticated.auditorRequest.form.label.responsibilityStatement = Responsibility Statement:
 
-authenticated.auditor.form.button.update = Update auditor data
-authenticated.auditor.form.button.return = Return
+authenticated.auditorRequest.form.button.create = Request to become auditor
+authenticated.auditorRequest.form.button.return = Return

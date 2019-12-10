@@ -41,6 +41,6 @@ public class MessageThread extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	Authenticated				creator;
+	private Authenticated				creator;
 
 }

@@ -1,0 +1,19 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: authenticated shows a message thread participant
+authenticated.authenticated.form.label.userName = User:
+
+authenticated.authenticated.form.button.addToThread = Add participant to Thread
+authenticated.authenticated.form.button.removeFromThread = Remove participant from Thread
+authenticated.authenticated.form.button.return = Return
+
+########################################### Feature: authenticated lists a message thread's participants
+authenticated.authenticated.list.label.userName = User

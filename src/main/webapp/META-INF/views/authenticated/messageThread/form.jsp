@@ -22,14 +22,13 @@
 		code="authenticated.messageThread.form.label.moment" 
 		path="moment"
 		readonly="true"/>
-		<acme:form-textarea code="authenticated.messageThread.form.label.userNameList" path="userNameList"/>
-		<acme:form-select code="authenticated.messageThread.form.label.addUser" path="${userAdded}">
-			<form:options items="${usersToInvolve}"/>
-		</acme:form-select>
-		<acme:form-select code="authenticated.messageThread.form.label.removeUser" path="${userRemoved}">
-			<form:options items="userNameList"/>
-		</acme:form-select>
-		<acme:form-submit code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?idMessageThread=${id}" method="get"/>
+		<acme:form-moment 
+		code="authenticated.messageThread.form.label.creator" 
+		path="creator.identity.fullName"
+		readonly="true"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.list-participants" action="/authenticated/authenticated/list?messageThreadId=${id}" method="get"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.list-notParticipants" action="/authenticated/authenticated/list-to-add?messageThreadId=${id}" method="get"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
 	</jstl:if>
 		
 	<acme:form-submit test="${command == 'create'}"

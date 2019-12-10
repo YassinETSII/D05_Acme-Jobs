@@ -11,6 +11,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -28,7 +29,15 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		Principal principal;
+
+		principal = request.getPrincipal();
+		int id = request.getModel().getInteger("id");
+		MessageThread mt = this.repository.findOneById(id);
+
+		result = principal.getAccountId() == mt.getCreator().getUserAccount().getId();
+		return result;
 	}
 
 	@Override
@@ -37,7 +46,7 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title");
+		request.unbind(entity, model, "title", "creator.identity.fullName");
 	}
 
 	@Override
@@ -47,14 +56,6 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert errors != null;
 
 		request.bind(entity, errors, "moment");
-
-		String userAdded = request.getModel().getString("userAdded");
-		String userRemoved = request.getModel().getString("userRemoved");
-
-		//añadir obtención de usuarios added y removed
-
-		//entity.addUser(userAdded);
-		//entity.removeUser(userAdded);
 
 	}
 

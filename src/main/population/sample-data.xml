@@ -860,13 +860,24 @@
 	<bean id="messageThread01" class="acme.entities.messageThreads.MessageThread">
 		<property name="title" value="Title 1"/>
 		<property name="moment" value="2017/12/11 23:59"/>
-		<property name="usersInvolved">
-			<list>
-				<ref bean="consumer1Authenticated"/>
-				<ref bean="provider1Authenticated"/>
-				<ref bean="employer1Authenticated"/>
-			</list>
-		</property>
+		<property name="creator" ref="employer1Authenticated"/>
+	</bean>
+	
+	<!-- Participations -->
+	
+	<bean id="thread01employer1participation" class="acme.entities.participations.Participation">
+		<property name="thread" ref="messageThread01"/>
+		<property name="participant" ref="employer1Authenticated"/>
+	</bean>
+	
+	<bean id="thread01consumer1participation" class="acme.entities.participations.Participation">
+		<property name="thread" ref="messageThread01"/>
+		<property name="participant" ref="consumer1Authenticated"/>
+	</bean>
+	
+	<bean id="thread01provider1participation" class="acme.entities.participations.Participation">
+		<property name="thread" ref="messageThread01"/>
+		<property name="participant" ref="provider1Authenticated"/>
 	</bean>
 	
 	<!-- Messages -->

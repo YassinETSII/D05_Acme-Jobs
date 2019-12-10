@@ -10,12 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.MessageThread;
-import acme.entities.messages.Message;
+import acme.entities.participations.Participation;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
-import acme.framework.entities.UserRole;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -39,11 +38,16 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		principal = request.getPrincipal();
 		int id = request.getModel().getInteger("id");
+		MessageThread mt = this.repository.findOneById(id);
+		Collection<Participation> parts = this.repository.findManyParticipationByThreadId(id);
+		listAuth.addAll(parts.stream().map(p -> p.getParticipant()).collect(Collectors.toList()));
 
-		Collection<Message> mess = this.repository.findManyMessagesByMessageThreadId(id);
-		listAuth.addAll(mess.stream().map(m -> m.getUser()).collect(Collectors.toList()));
+		//		Collection<Message> mess = this.repository.findManyMessagesByMessageThreadId(id);
+		//		listAuth.addAll(mess.stream().map(m -> m.getUser()).collect(Collectors.toList()));
+		//
+		//		result = listAuth.stream().anyMatch(a -> a.getUserAccount().getId() == principal.getAccountId());
 
-		result = listAuth.stream().anyMatch(a -> a.getUserAccount().getId() == principal.getAccountId());
+		result = principal.getAccountId() == mt.getCreator().getUserAccount().getId() || listAuth.stream().anyMatch(a -> a.getUserAccount().getId() == principal.getAccountId());
 
 		return result;
 	}
@@ -54,28 +58,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment");
-
-		StringBuilder buffer;
-		//		Collection<Message> userNames = this.repository.findManyMessagesByMessageThreadId(entity.getId());
-		//		buffer = new StringBuilder();
-		//		for (Message userName : userNames) {
-		//			buffer.append("[" + userName.getUser().getIdentity().getFullName() + "]");
-		//			buffer.append(" ");
-		//		}
-		Collection<UserRole> userNames = entity.getUsersInvolved();
-		buffer = new StringBuilder();
-		for (UserRole userName : userNames) {
-			buffer.append("[" + userName.getIdentity().getFullName() + "]");
-			buffer.append(" ");
-		}
-		model.setAttribute("userNameList", buffer.toString());
-		//		Collection<UserRole> userNamesToInvolve = this.repository.findManyUsersToInvolve(entity.getId());
-		//		ArrayList<String> usersToInvolve = new ArrayList<>();
-		//		for (UserRole userNameToInvolve : userNamesToInvolve) {
-		//			usersToInvolve.add(userNameToInvolve.getIdentity().getFullName());
-		//		}
-		//		model.setAttribute("usersToInvolve", usersToInvolve);
+		request.unbind(entity, model, "title", "moment", "creator.identity.fullName");
 
 	}
 
@@ -88,8 +71,6 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneMessageThreadById(id);
-		result.getUsersInvolved().size();
-
 		return result;
 	}
 

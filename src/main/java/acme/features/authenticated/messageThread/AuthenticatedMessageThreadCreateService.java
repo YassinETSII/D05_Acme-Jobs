@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.MessageThread;
+import acme.entities.participations.Participation;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -48,7 +49,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment");
+		request.bind(entity, errors, "moment", "creator.identity.fullName");
 	}
 
 	@Override
@@ -56,6 +57,10 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert request != null;
 		MessageThread result;
 		result = new MessageThread();
+		Principal principal = request.getPrincipal();
+		int id = principal.getActiveRoleId();
+		Authenticated creator = this.repository.findAuthenticatedById(id);
+		result.setCreator(creator);
 		return result;
 	}
 
@@ -75,10 +80,12 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
 
-		Principal principal = request.getPrincipal();
-		//entity.addUser(principal.getActiveRole());
-
 		this.repository.save(entity);
+
+		Participation p = new Participation();
+		p.setParticipant(entity.getCreator());
+		p.setThread(entity);
+		this.repository.save(p);
 
 	}
 

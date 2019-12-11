@@ -17,7 +17,7 @@
 
 <acme:form>
 
-	<jstl:if test="${finalMode == false}">
+	<jstl:if test="${finalMode == false || finalMode == true && command == 'update'}">
 	
 	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
 	<acme:form-textbox code="employer.job.form.label.title" path="title"/>
@@ -33,7 +33,7 @@
 	
 	</jstl:if>	
 	
-	<jstl:if test="${finalMode == true}">
+	<jstl:if test="${finalMode == true && command != 'update'}">
 	
 	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ" readonly="true"/>
 	<acme:form-textbox code="employer.job.form.label.title" path="title" readonly="true"/>

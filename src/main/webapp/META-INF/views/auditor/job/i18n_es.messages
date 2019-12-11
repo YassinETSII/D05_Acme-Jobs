@@ -22,6 +22,7 @@ auditor.job.form.label.moreInfo = Más Información:
 auditor.job.form.label.description = Descripción:
 auditor.job.form.label.finalMode = Publicado
 
+auditor.job.form.button.write-record = Escribir registro de auditoría
 auditor.job.form.button.list-duties = Listar deberes
 auditor.job.form.button.list-audit-records = Listar registros de auditoría
 auditor.job.form.button.return = Volver

@@ -47,9 +47,6 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert model != null;
 
 		request.unbind(entity, model, "title", "description", "timePercentage");
-
-		int idJob = request.getModel().getInteger("idJob");
-		model.setAttribute("idJob", idJob);
 	}
 
 	@Override
@@ -59,14 +56,21 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert errors != null;
 
 		//Validation of timePercentage
+
 		if (!errors.hasErrors("timePercentage")) {
-			int idJob = request.getModel().getInteger("idJob");
-			Collection<Duty> duties = this.repository.findManyDutiesByJobId(idJob);
-			int sum = duties.stream().mapToInt(t -> t.getTimePercentage()).sum() + entity.getTimePercentage();
-			System.out.println(sum);
+			Collection<Duty> duties = this.repository.findManyDutiesByDutyId(request.getModel().getInteger("id"));
+			int oldDuty = this.repository.findOneDutyById(request.getModel().getInteger("id")).getTimePercentage();
+
+			int sumOldDuties = duties.stream().mapToInt(t -> t.getTimePercentage()).sum();
+
+			int newDuty = entity.getTimePercentage();
+
+			int sum = sumOldDuties + newDuty - oldDuty;
+
 			boolean weeklyWorkload = sum <= 100;
 			errors.state(request, weeklyWorkload, "timePercentage", "employer.duty.error.weeklyWorkload");
 		}
+
 	}
 
 	@Override

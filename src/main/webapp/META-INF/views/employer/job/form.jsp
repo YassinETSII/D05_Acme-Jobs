@@ -27,11 +27,11 @@
 	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
 	<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode"/>		
 	
-	<acme:form-submit test="${command == 'show'}" 
-		code="employer.job.form.button.update" 
-		action="/employer/job/update"/>
+	</jstl:if>
 	
-	</jstl:if>	
+	<acme:form-submit test="${command == 'show' && finalMode == false}" 
+		code="employer.job.form.button.update" 
+		action="/employer/job/update"/>	
 	
 	<jstl:if test="${finalMode == true && command != 'update'}">
 	

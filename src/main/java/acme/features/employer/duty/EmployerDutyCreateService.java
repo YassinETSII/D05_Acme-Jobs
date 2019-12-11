@@ -71,11 +71,11 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert errors != null;
 
+		//Validation of timePercentage
 		if (!errors.hasErrors("timePercentage")) {
 			int idJob = request.getModel().getInteger("idJob");
 			Collection<Duty> duties = this.repository.findManyDutiesByJobId(idJob);
 			int sum = duties.stream().mapToInt(t -> t.getTimePercentage()).sum() + entity.getTimePercentage();
-			System.out.println(sum);
 			boolean weeklyWorkload = sum <= 100;
 			errors.state(request, weeklyWorkload, "timePercentage", "employer.duty.error.weeklyWorkload");
 		}

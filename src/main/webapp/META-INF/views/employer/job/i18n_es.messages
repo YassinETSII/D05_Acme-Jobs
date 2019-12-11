@@ -25,7 +25,7 @@ employer.job.form.label.finalMode = Trabajo en modo final
 employer.job.form.button.add-duty = Crear un deber
 employer.job.form.button.create = Crear trabajo
 employer.job.form.button.update = Actualizar trabajo
-employer.job.form.button.delete = Delete job = Eliminar trabajo
+employer.job.form.button.delete = Eliminar trabajo
 
 employer.job.form.button.list-duties = Listar deberes
 employer.job.form.button.list-audit-records = Listar registros de auditoría

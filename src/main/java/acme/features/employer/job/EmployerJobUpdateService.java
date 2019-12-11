@@ -94,10 +94,6 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			acceptedSalaryCurrency = salaryCurrency.equals("EUR") || salaryCurrency.equals("€");
 			errors.state(request, acceptedSalaryCurrency, "salary", "employer.job.error.salary");
 		}
-
-		//if (errors.hasErrors("reference") || errors.hasErrors("title") || errors.hasErrors("deadline") || errors.hasErrors("salary") || errors.hasErrors("description") || errors.hasErrors("moreInfo")) {
-		//entity.setFinalMode(false);
-		//}
 	}
 
 	@Override

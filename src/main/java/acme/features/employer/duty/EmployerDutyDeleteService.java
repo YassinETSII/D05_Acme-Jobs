@@ -45,9 +45,6 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		assert model != null;
 
 		request.unbind(entity, model, "title", "description", "timePercentage");
-
-		int idJob = request.getModel().getInteger("idJob");
-		model.setAttribute("idJob", idJob);
 	}
 
 	@Override

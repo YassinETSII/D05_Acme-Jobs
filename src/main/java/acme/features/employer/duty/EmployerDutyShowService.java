@@ -49,7 +49,7 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "timePercentage");
+		request.unbind(entity, model, "title", "description", "timePercentage", "job");
 
 	}
 

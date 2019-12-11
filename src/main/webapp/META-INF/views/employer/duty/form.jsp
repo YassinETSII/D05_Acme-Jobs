@@ -16,22 +16,31 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
-	<acme:form-textarea code="employer.duty.form.label.description" path="description"/>
-	<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage"/>
+
+	<jstl:if test="${job.finalMode == false || command == 'update'}">
+		<acme:form-textbox code="employer.duty.form.label.title" path="title" />
+		<acme:form-textarea code="employer.duty.form.label.description" path="description" />
+		<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage" />
+	</jstl:if>
+	
+	<acme:form-submit test="${command == 'show' && job.finalMode == false}" 
+		code="employer.duty.form.button.update" 
+		action="/employer/duty/update"/>
+	
+	<acme:form-submit test="${command == 'show' && job.finalMode == false}"
+	 	code="employer.duty.form.button.delete" 
+	 	action="/employer/duty/delete"/>	
+		
+	<jstl:if test="${job.finalMode == true}">
+		<acme:form-textbox code="employer.duty.form.label.title" path="title" readonly="true"/>
+		<acme:form-textarea code="employer.duty.form.label.description" path="description" readonly="true"/>
+		<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage" readonly="true"/>
+	</jstl:if>		
 	
 	<acme:form-submit test="${command == 'create'}"
 		code="employer.duty.form.button.create"
 		action="/employer/duty/create?idJob=${idJob}" method="post"/>	
 		
-	<acme:form-submit test="${command == 'show'}" 
-		code="employer.duty.form.button.update"
-		action="/employer/duty/update"/>	
-		
-	<acme:form-submit test="${command == 'show'}"
-		code="employer.duty.form.button.delete"
-		action="/employer/duty/delete"/>
-			
 	<acme:form-submit test="${command == 'update'}" 
 		code="employer.duty.form.button.update"
 		action="/employer/duty/update"/>

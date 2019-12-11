@@ -18,15 +18,13 @@
 <acme:form>
 
 	<jstl:if test="${finalMode == false || finalMode == true && command == 'update'}">
-	
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
-	<acme:form-textbox code="employer.job.form.label.title" path="title"/>
-	<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
-	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
-	<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode"/>		
-	
+		<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
+		<acme:form-textbox code="employer.job.form.label.title" path="title"/>
+		<acme:form-moment code="employer.job.form.label.deadline" path="deadline"/>
+		<acme:form-money code="employer.job.form.label.salary" path="salary"/>
+		<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
+		<acme:form-textarea code="employer.job.form.label.description" path="description"/>
+		<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode"/>		
 	</jstl:if>
 	
 	<acme:form-submit test="${command == 'show' && finalMode == false}" 
@@ -34,15 +32,13 @@
 		action="/employer/job/update"/>	
 	
 	<jstl:if test="${finalMode == true && command != 'update'}">
-	
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ" readonly="true"/>
-	<acme:form-textbox code="employer.job.form.label.title" path="title" readonly="true"/>
-	<acme:form-moment code="employer.job.form.label.deadline" path="deadline" readonly="true"/>
-	<acme:form-money code="employer.job.form.label.salary" path="salary" readonly="true"/>
-	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" readonly="true"/>
-	<acme:form-textarea code="employer.job.form.label.description" path="description" readonly="true"/>
-	<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode" readonly="true"/>	
-	
+		<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ" readonly="true"/>
+		<acme:form-textbox code="employer.job.form.label.title" path="title" readonly="true"/>
+		<acme:form-moment code="employer.job.form.label.deadline" path="deadline" readonly="true"/>
+		<acme:form-money code="employer.job.form.label.salary" path="salary" readonly="true"/>
+		<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" readonly="true"/>
+		<acme:form-textarea code="employer.job.form.label.description" path="description" readonly="true"/>
+		<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode" readonly="true"/>	
 	</jstl:if>	
 	
 	<acme:form-submit test="${command == 'show'}"

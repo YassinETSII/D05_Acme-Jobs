@@ -35,5 +35,6 @@ employer.job.error.deleteJobWithApplication = Este trabajo no se puede eliminar 
 employer.job.error.referenceDuplicated = Esta referencia ya está en uso
 employer.job.error.deadline = La fecha de vencimiento debe estar en el futuro
 employer.job.error.salary = La moneda debe ser EUR o €
+employer.job.error.dutiesPercentage = La carga de trabajo semanal de los deberes de este trabajo deben sumar hasta el 100%
 
 employer.job.form.button.return = Volver

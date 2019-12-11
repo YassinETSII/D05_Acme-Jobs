@@ -35,5 +35,6 @@ employer.job.error.deleteJobWithApplication = This job cannot be deleted because
 employer.job.error.referenceDuplicated = This reference is already in use
 employer.job.error.deadline = Deadline must be in future
 employer.job.error.salary = Currency must be EUR or €
+employer.job.error.dutiesPercentage = The weekly workload duties of this job must sum up to 100%
 
 employer.job.form.button.return = Return

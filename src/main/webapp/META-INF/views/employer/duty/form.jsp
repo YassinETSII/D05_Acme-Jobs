@@ -17,7 +17,7 @@
 
 <acme:form>
 
-	<jstl:if test="${job.finalMode == false || command == 'update'}">
+	<jstl:if test="${job.finalMode == false || command == 'update' || command == 'create'}">
 		<acme:form-textbox code="employer.duty.form.label.title" path="title" />
 		<acme:form-textarea code="employer.duty.form.label.description" path="description" />
 		<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage" />

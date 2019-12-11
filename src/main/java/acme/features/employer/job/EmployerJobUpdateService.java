@@ -62,10 +62,10 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert errors != null;
 
 		//Validation of finalMode
-		boolean finalModeJob;
+		boolean finalModeJobWithDuties;
 		Collection<Duty> duties = this.repository.findManyDutiesByJobId(entity.getId());
-		finalModeJob = entity.isFinalMode() == true && !duties.isEmpty() || entity.isFinalMode() == false && (duties.isEmpty() || !duties.isEmpty());
-		errors.state(request, finalModeJob, "finalMode", "employer.job.error.finalModeJob");
+		finalModeJobWithDuties = entity.isFinalMode() == true && !duties.isEmpty() || entity.isFinalMode() == false && (duties.isEmpty() || !duties.isEmpty());
+		errors.state(request, finalModeJobWithDuties, "finalMode", "employer.job.error.finalModeJob");
 
 		//Validation of reference
 		boolean referenceDuplicated;
@@ -94,6 +94,13 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			acceptedSalaryCurrency = salaryCurrency.equals("EUR") || salaryCurrency.equals("€");
 			errors.state(request, acceptedSalaryCurrency, "salary", "employer.job.error.salary");
 		}
+
+		//Validation of 100% percentage
+		int sumDutiesWorkload = this.repository.findManyDutiesByJobId(entity.getId()).stream().mapToInt(t -> t.getTimePercentage()).sum();
+		boolean sum100, finalModeJobWith100Workload;
+		sum100 = sumDutiesWorkload == 100;
+		finalModeJobWith100Workload = entity.isFinalMode() == true && sum100 || entity.isFinalMode() == false && (sum100 || !sum100);
+		errors.state(request, finalModeJobWith100Workload, "*", "employer.job.error.dutiesPercentage");
 	}
 
 	@Override

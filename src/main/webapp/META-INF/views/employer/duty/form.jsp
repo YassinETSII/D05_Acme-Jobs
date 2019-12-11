@@ -20,5 +20,10 @@
 	<acme:form-textarea code="employer.duty.form.label.description" path="description"/>
 	<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage"/>
 	
+	<acme:form-submit test="${command == 'create'}"
+		code="employer.duty.form.button.create"
+		action="/employer/duty/create?idJob=${idJob}" method="post"/>	
+			
 	<acme:form-return code="employer.duty.form.button.return"/>
+	
 </acme:form>

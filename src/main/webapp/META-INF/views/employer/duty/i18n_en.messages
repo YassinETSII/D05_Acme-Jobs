@@ -16,4 +16,8 @@ employer.duty.form.label.title = Title:
 employer.duty.form.label.description = Description:
 employer.duty.form.label.timePercentage = Time percentage during each week:
 
+employer.duty.error.weeklyWorkload = The weekly workload of the duties must not overpass the quantity of 100
+
+employer.duty.form.button.create = Create duty
+
 employer.duty.form.button.return = Return

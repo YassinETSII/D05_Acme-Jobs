@@ -16,4 +16,8 @@ employer.duty.form.label.title = Título:
 employer.duty.form.label.description = Descripción:
 employer.duty.form.label.timePercentage = Porcentaje de tiempo en cada semana:
 
+employer.duty.error.weeklyWorkload = La carga de trabajo semanal de los deberes no debe superar la cantidad de 100
+
+employer.duty.form.button.create = Crear deber
+
 employer.duty.form.button.return = Volver

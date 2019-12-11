@@ -20,8 +20,20 @@ employer.job.form.label.deadline = Deadline:
 employer.job.form.label.salary = Salary:
 employer.job.form.label.moreInfo = moreInfo:
 employer.job.form.label.description = Description:
-employer.job.form.label.finalMode = Published
+employer.job.form.label.finalMode = Final mode job
+
+employer.job.form.button.add-duty = Create a duty
+employer.job.form.button.create = Create job
+employer.job.form.button.update = Update job
+employer.job.form.button.delete = Delete job
 
 employer.job.form.button.list-duties = List duties
 employer.job.form.button.list-audit-records = List audit records
+
+employer.job.error.finalModeJob = A job cannot be saved in final mode unless it has at least a duty
+employer.job.error.deleteJobWithApplication = This job cannot be deleted because a worker has applied for it already
+employer.job.error.referenceDuplicated = This reference is already in use
+employer.job.error.deadline = Deadline must be in future
+employer.job.error.salary = Currency must be EUR or €
+
 employer.job.form.button.return = Return

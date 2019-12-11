@@ -126,6 +126,8 @@ master.menu.user-account.become-employer = Hazte empleador
 master.menu.user-account.employer = Datos del empleador
 master.menu.user-account.become-worker = Hazte trabajador
 master.menu.user-account.worker = Datos del trabajador
+master.menu.user-account.become-sponsor = Hazte sponsor
+master.menu.user-account.sponsor = Datos del sponsor
 
 ﻿# master.footer ###############################################################
 

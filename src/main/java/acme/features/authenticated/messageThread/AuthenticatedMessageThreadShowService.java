@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.MessageThread;
+import acme.entities.messages.Message;
 import acme.entities.participations.Participation;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -59,6 +60,15 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert model != null;
 
 		request.unbind(entity, model, "title", "moment", "creator.identity.fullName");
+		boolean isCreator = entity.getCreator().getId() == request.getPrincipal().getActiveRoleId();
+		model.setAttribute("isCreator", isCreator);
+		boolean postedMessage;
+		Principal principal;
+		principal = request.getPrincipal();
+		Collection<Message> messages = this.repository.findManyMessagesByMessageThreadId(request.getModel().getInteger("id"));
+		Collection<Authenticated> auth = messages.stream().map(m -> m.getUser()).collect(Collectors.toList());
+		postedMessage = auth.stream().anyMatch(u -> u.getUserAccount().getId() == principal.getAccountId());
+		model.setAttribute("postedMessage", postedMessage);
 
 	}
 

@@ -26,18 +26,25 @@
 		code="authenticated.messageThread.form.label.creator" 
 		path="creator.identity.fullName"
 		readonly="true"/>
-		<acme:form-submit code="authenticated.messageThread.form.button.list-participants" action="/authenticated/authenticated/list?messageThreadId=${id}" method="get"/>
-		<acme:form-submit code="authenticated.messageThread.form.button.list-notParticipants" action="/authenticated/authenticated/list-to-add?messageThreadId=${id}" method="get"/>
-		<acme:form-submit code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
+		<acme:form-submit test="${postedMessage == true}" code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
+	</jstl:if>
+	
+	<jstl:if test="${command !='create' && isCreator == true}">
+		<acme:form-submit code="authenticated.messageThread.form.button.list-participants" action="/authenticated/participation/list?messageThreadId=${id}" method="get"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.add-participant" action="/authenticated/participation/create?messageThreadId=${id}" method="get"/>
 	</jstl:if>
 		
 	<acme:form-submit test="${command == 'create'}"
 		code="authenticated.messageThread.form.button.create"
 		action="/authenticated/message-thread/create"/>	
 		
-	<acme:form-submit test="${command == 'show'}"
+	<acme:form-submit test="${command == 'show' && isCreator == true}"
 		code="authenticated.messageThread.form.button.update"
 		action="/authenticated/message-thread/update"/>	
+		
+		<acme:form-submit test="${command == 'update'}"
+		code="authenticated.messageThread.form.button.update"
+		action="/authenticated/message-thread/update"/>
 		
 		
 	<acme:form-return code="authenticated.messageThread.form.button.return"/>

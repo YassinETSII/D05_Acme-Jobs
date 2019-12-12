@@ -14,7 +14,7 @@ authenticated.messageThread.form.label.moment = Momento de creación:
 authenticated.messageThread.form.label.creator = Creador del hilo:
 authenticated.messageThread.form.label.userNameList = Usuarios involucrados:
 authenticated.messageThread.form.button.list-participants = Listar participantes
-authenticated.messageThread.form.button.list-notParticipants = Listar participantes que añadir
+authenticated.messageThread.form.button.add-participant = Añadir participante
 authenticated.messageThread.form.button.list-messages = Listar mensajes
 
 authenticated.messageThread.form.button.create = Crear hilo de mensajes

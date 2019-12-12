@@ -9,11 +9,12 @@
 # they accept any liabilities with respect to them.
 
 ########################################### Feature: authenticated shows a message thread participant
-authenticated.authenticated.form.label.userName = User:
+authenticated.participation.form.label.userName = User:
+authenticated.participation.form.label.thread = Thread:
 
-authenticated.authenticated.form.button.addToThread = Add participant to Thread
-authenticated.authenticated.form.button.removeFromThread = Remove participant from Thread
-authenticated.authenticated.form.button.return = Return
+authenticated.participation.form.button.addToThread = Add participant to Thread
+authenticated.participation.form.button.removeFromThread = Remove participant from Thread
+authenticated.participation.form.button.return = Return
 
 ########################################### Feature: authenticated lists a message thread's participants
-authenticated.authenticated.list.label.userName = User
+authenticated.participation.list.label.userName = User

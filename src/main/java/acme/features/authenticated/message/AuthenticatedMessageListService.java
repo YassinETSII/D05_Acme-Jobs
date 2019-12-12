@@ -32,7 +32,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 		boolean result;
 		Principal principal;
 		principal = request.getPrincipal();
-		Collection<Message> messages = this.repository.findManyMessagesByMessageThreadId(request.getModel().getInteger("idMessageThread"));
+		Collection<Message> messages = this.repository.findManyMessagesByMessageThreadId(request.getModel().getInteger("messageThreadId"));
 		Collection<Authenticated> auth = messages.stream().map(m -> m.getUser()).collect(Collectors.toList());
 		result = auth.stream().anyMatch(u -> u.getUserAccount().getId() == principal.getAccountId());
 		return result;
@@ -53,7 +53,7 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 
 		Collection<Message> result;
 
-		int id = request.getModel().getInteger("idMessageThread");
+		int id = request.getModel().getInteger("messageThreadId");
 		result = this.repository.findManyMessagesByMessageThreadId(id);
 		return result;
 

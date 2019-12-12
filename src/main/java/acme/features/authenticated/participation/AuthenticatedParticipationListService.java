@@ -1,11 +1,12 @@
 
-package acme.features.authenticated.authenticated;
+package acme.features.authenticated.participation;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.participations.Participation;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -13,18 +14,18 @@ import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedAuthenticatedListService implements AbstractListService<Authenticated, Authenticated> {
+public class AuthenticatedParticipationListService implements AbstractListService<Authenticated, Participation> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AuthenticatedAuthenticatedRepository repository;
+	AuthenticatedParticipationRepository repository;
 
 
-	// AbstractListService<Authenticated, Authenticated> interface --------------
+	// AbstractListService<Authenticated, Participation> interface --------------
 
 	@Override
-	public boolean authorise(final Request<Authenticated> request) {
+	public boolean authorise(final Request<Participation> request) {
 		assert request != null;
 
 		boolean result;
@@ -36,22 +37,22 @@ public class AuthenticatedAuthenticatedListService implements AbstractListServic
 	}
 
 	@Override
-	public void unbind(final Request<Authenticated> request, final Authenticated entity, final Model model) {
+	public void unbind(final Request<Participation> request, final Participation entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "identity.fullName");
+		request.unbind(entity, model, "participant.identity.fullName");
 	}
 
 	@Override
-	public Collection<Authenticated> findMany(final Request<Authenticated> request) {
+	public Collection<Participation> findMany(final Request<Participation> request) {
 		assert request != null;
 
-		Collection<Authenticated> result;
+		Collection<Participation> result;
 
 		int id = request.getModel().getInteger("messageThreadId");
-		result = this.repository.findManyAuthenticatedByMessageThreadId(id);
+		result = this.repository.findManyParticipationByMessageThreadId(id);
 		return result;
 
 	}

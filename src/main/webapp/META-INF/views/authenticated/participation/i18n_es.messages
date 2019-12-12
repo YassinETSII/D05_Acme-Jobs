@@ -9,11 +9,12 @@
 # they accept any liabilities with respect to them.
 
 ########################################### Feature: autenticado muestra un participante de un hilo
-authenticated.authenticated.form.label.userName = Usuario:
+authenticated.participation.form.label.userName = Usuario:
+authenticated.participation.form.label.thread = Hilo:
 
-authenticated.authenticated.form.button.addToThread = Añadir participante al hilo
-authenticated.authenticated.form.button.removeFromThread = Quitar participante del hilo
-authenticated.authenticated.form.button.return = Volver
+authenticated.participation.form.button.addToThread = Añadir participante al hilo
+authenticated.participation.form.button.removeFromThread = Quitar participante del hilo
+authenticated.participation.form.button.return = Volver
 
 ########################################### Feature: autenticado lista participantes de un hilo
-authenticated.authenticated.list.label.userName = Usuario
+authenticated.participation.list.label.userName = Usuario

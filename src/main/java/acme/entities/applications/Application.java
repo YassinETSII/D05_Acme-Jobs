@@ -28,7 +28,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "status")
+	@Index(columnList = "status"), @Index(columnList = "reference asc, status asc, moment desc")
 })
 public class Application extends DomainEntity {
 

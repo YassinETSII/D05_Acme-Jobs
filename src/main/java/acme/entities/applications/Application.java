@@ -61,6 +61,8 @@ public class Application extends DomainEntity {
 	@NotBlank
 	private String				qualifications;
 
+	@Column(length = 1024)
+	private String				justification;
 	// Relationships ------------------------------------------------------------
 
 	@NotNull

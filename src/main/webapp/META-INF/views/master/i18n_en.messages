@@ -101,6 +101,7 @@ master.menu.employer.application.listMine = List my applications
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
+master.menu.worker.job.list = List jobs
 master.menu.worker.application.list-mine = List my applications
 
 # master.menu.auditor ##########################################################

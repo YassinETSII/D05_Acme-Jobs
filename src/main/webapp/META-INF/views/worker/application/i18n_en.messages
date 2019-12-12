@@ -18,6 +18,7 @@ worker.application.form.label.qualifications = Qualifications:
 worker.application.form.label.job.reference = Job reference:
 
 worker.application.form.label.job = Show it's Job
+worker.application.form.button.create = Create application
 
 worker.application.form.button.return = Return
 

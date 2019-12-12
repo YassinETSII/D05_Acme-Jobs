@@ -17,9 +17,14 @@ employer.application.form.label.skills = Skills:
 employer.application.form.label.qualifications = Qualifications:
 employer.application.form.label.applierWorker = Applier worker:
 employer.application.form.label.job.reference = Job reference:
+employer.application.form.label.justification = Justification:
 
 employer.application.form.label.job = Show it's job
 
+employer.application.error.referenceDuplicated = This reference is already in use
+employer.application.error.justification = A justification is mandatory if the application is rejected
+
+employer.application.form.button.update = Update application
 employer.application.form.button.return = Return
 
 ########################################### Feature: employer lists applications.

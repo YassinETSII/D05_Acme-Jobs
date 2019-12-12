@@ -26,6 +26,10 @@
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications"/>
 	<acme:form-textbox code="worker.application.form.label.job.reference" path="job.reference"/>	
 	
+	<jstl:if test="${status != 'pending'}">
+	<acme:form-textarea code="worker.application.form.label.justification" path="justification"/>
+	</jstl:if>
+	
 	<acme:form-submit code="worker.application.form.label.job" action="/authenticated/job/show?id=${idJob}" method="get" />
 	</jstl:if>
 	

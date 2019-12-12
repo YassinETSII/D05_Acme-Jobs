@@ -74,6 +74,12 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		//Validation of reference
+		boolean referenceDuplicated;
+		if (!errors.hasErrors("reference")) { //Check if reference has no errors
+			referenceDuplicated = this.repository.findOneApplicationByReference(entity.getReference()) != null;
+			errors.state(request, !referenceDuplicated, "reference", "worker.application.error.referenceDuplicated");
+		}
 
 	}
 

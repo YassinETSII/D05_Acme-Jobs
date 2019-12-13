@@ -8,14 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-########################################### Feature: autenticado muestra un mensaje.
+########################################### Feature: autenticado publica o muestra un mensaje.
 authenticated.message.form.label.title = Título:
 authenticated.message.form.label.moment = Momento de creación:
 authenticated.message.form.label.tags = Etiquetas:
 authenticated.message.form.label.body = Cuerpo:
 authenticated.message.form.label.userName = Usuario:
+authenticated.message.form.label.accept = ¿Publicar este mensaje?
 
+authenticated.message.form.button.create = Publicar mensaje
 authenticated.message.form.button.return = Volver
+
+authenticated.message.error.must-accept = Debe aceptar publicar el mensaje
 
 ########################################### Feature: autenticado lista mensajes.
 authenticated.message.list.label.moment = Momento de creación

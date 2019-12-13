@@ -16,9 +16,11 @@ authenticated.messageThread.form.label.userNameList = Usuarios involucrados:
 authenticated.messageThread.form.button.list-participants = Listar participantes
 authenticated.messageThread.form.button.add-participant = Añadir participante
 authenticated.messageThread.form.button.list-messages = Listar mensajes
+authenticated.messageThread.form.button.postMessage = Publicar mensaje
 
 authenticated.messageThread.form.button.create = Crear hilo de mensajes
 authenticated.messageThread.form.button.update = Actualizar hilo de mensajes
+authenticated.messageThread.form.button.delete = Borrar hilo de mensajes
 authenticated.messageThread.form.button.return = Volver
 
 ########################################### Feature: autenticado lista hilos de mensajes.

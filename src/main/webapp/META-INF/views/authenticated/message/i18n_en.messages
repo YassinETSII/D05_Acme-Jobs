@@ -8,14 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-########################################### Feature: authenticated shows a message.
+########################################### Feature: authenticated posts or shows a message.
 authenticated.message.form.label.title = Title:
 authenticated.message.form.label.moment = Moment of creation:
 authenticated.message.form.label.tags = Tags:
 authenticated.message.form.label.body = Body:
 authenticated.message.form.label.userName = User:
+authenticated.message.form.label.accept = Post this message?
 
+authenticated.message.form.button.create = Post message
 authenticated.message.form.button.return = Return
+
+authenticated.message.error.must-accept = Must accept to post the message
 
 ########################################### Feature: authenticated lists messages.
 authenticated.message.list.label.moment = Moment of creation

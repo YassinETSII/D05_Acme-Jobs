@@ -1,0 +1,27 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: trabajador lista trabajos.
+worker.job.list.label.reference = Referencia
+worker.job.list.label.deadline = Fecha de vencimiento
+worker.job.list.label.title = Título
+
+########################################### Feature: trabajador muestra un trabajo.
+worker.job.form.label.reference = Referencia:
+worker.job.form.label.title = Título:
+worker.job.form.label.deadline = Fecha de vencimiento:
+worker.job.form.label.salary = Salario:
+worker.job.form.label.moreInfo = Más Información:
+worker.job.form.label.description = Descripción:
+worker.job.form.label.finalMode = Trabajo en modo final
+
+worker.job.form.button.add-duty = Aplicarme para este trabajo
+
+worker.job.form.button.return = Volver

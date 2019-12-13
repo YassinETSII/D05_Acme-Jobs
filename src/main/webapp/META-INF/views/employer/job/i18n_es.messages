@@ -20,8 +20,20 @@ employer.job.form.label.deadline = Fecha de vencimiento:
 employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más Información:
 employer.job.form.label.description = Descripción:
-employer.job.form.label.finalMode = Publicado
+employer.job.form.label.finalMode = Trabajo en modo final
+
+employer.job.form.button.add-duty = Crear un deber
+employer.job.form.button.create = Crear trabajo
+employer.job.form.button.update = Actualizar trabajo
+employer.job.form.button.delete = Eliminar trabajo
 
 employer.job.form.button.list-duties = Listar deberes
-employer.job.form.button.list-audit-records= Listar registros de auditoría
+employer.job.form.button.list-audit-records = Listar registros de auditoría
+
+employer.job.error.deleteJobWithApplication = Este trabajo no se puede eliminar porque un trabajador ya ha aplicado por él
+employer.job.error.referenceDuplicated = Esta referencia ya está en uso
+employer.job.error.deadline = La fecha de vencimiento debe estar en el futuro
+employer.job.error.salary = La moneda debe ser EUR o €
+employer.job.error.dutiesPercentage = La carga de trabajo semanal de los deberes de este trabajo deben sumar hasta el 100%
+
 employer.job.form.button.return = Volver

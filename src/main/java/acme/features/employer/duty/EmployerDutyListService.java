@@ -2,7 +2,6 @@
 package acme.features.employer.duty;
 
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,19 +31,14 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 		assert request != null;
 		boolean result;
 		Principal principal = request.getPrincipal();
-		Duty duty;
+		Employer employer;
 		int idEmployer;
-		LinkedList<Duty> dut = new LinkedList<>();
 
-		//Here we obtain all the duties of a job by his id that we call idJob.
 		int idJob = request.getModel().getInteger("idJob");
 		Collection<Duty> duties = this.repository.findManyDutiesByJobId(idJob);
 
-		//Now we add all elements of the collection of duties on a list to obtain a single duty
-		//so we can obtain the employer and his respective id.
-		dut.addAll(duties);
-		duty = dut.get(0);
-		idEmployer = duty.getJob().getEmployer().getUserAccount().getId();
+		employer = this.repository.findOneEmployerById(request.getPrincipal().getActiveRoleId());
+		idEmployer = employer.getUserAccount().getId();
 
 		Predicate<Duty> condition1 = d -> d.getJob().isFinalMode() == true;
 		Predicate<Duty> condition2 = d -> d.getJob().isFinalMode() == false;

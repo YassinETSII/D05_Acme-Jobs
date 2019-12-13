@@ -17,9 +17,14 @@ employer.application.form.label.skills = Habilidades:
 employer.application.form.label.qualifications = Aptitudes:
 employer.application.form.label.applierWorker = Trabajador aplicador:
 employer.application.form.label.job.reference = Referencia del trabajo:
+employer.application.form.label.justification = Justificacion:
 
 employer.application.form.label.job = Mostrar trabajo
 
+employer.application.error.referenceDuplicated = Esta referencia ya está en uso
+employer.application.error.justification = Es obligatoria una justificación si la aplicación es rechazada
+
+employer.application.form.button.update = Actualizar aplicación
 employer.application.form.button.return = Volver
 
 ########################################### Feature: empleado lista aplicaciones.

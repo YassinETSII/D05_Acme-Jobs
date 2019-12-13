@@ -700,6 +700,7 @@
 		<property name="statement" value="Statement 1"/>
 		<property name="skills" value="Skills 1"/>
 		<property name="qualifications" value="Qualif 1"/>
+		<property name="justification"><null/></property>		
 		<property name="worker" ref="worker1Worker"/>
 		<property name="job" ref="job01"/>
 	</bean>
@@ -711,6 +712,7 @@
 		<property name="statement" value="Statement 2"/>
 		<property name="skills" value="Skills 2"/>
 		<property name="qualifications" value="Qualif 2"/>
+		<property name="justification"><null/></property>		
 		<property name="worker" ref="worker1Worker"/>
 		<property name="job" ref="job02"/>
 	</bean>
@@ -722,6 +724,7 @@
 		<property name="statement" value="Statement 3"/>
 		<property name="skills" value="Skills 3"/>
 		<property name="qualifications" value="Qualif 3"/>
+		<property name="justification" value="justification sample 1" />				
 		<property name="worker" ref="worker2Worker"/>
 		<property name="job" ref="job02"/>
 	</bean>
@@ -733,6 +736,7 @@
 		<property name="statement" value="Statement 4"/>
 		<property name="skills" value="Skills 4"/>
 		<property name="qualifications" value="Qualif 4"/>
+		<property name="justification" value="justification sample 2" />						
 		<property name="worker" ref="worker1Worker"/>
 		<property name="job" ref="job03"/>
 	</bean>
@@ -744,6 +748,7 @@
 		<property name="statement" value="Statement 5"/>
 		<property name="skills" value="Skills 5"/>
 		<property name="qualifications" value="Qualif 5"/>
+		<property name="justification"><null/></property>		
 		<property name="worker" ref="worker2Worker"/>
 		<property name="job" ref="job04"/>
 	</bean>

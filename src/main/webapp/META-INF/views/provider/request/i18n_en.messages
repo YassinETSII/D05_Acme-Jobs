@@ -24,4 +24,4 @@ provider.request.error.deadline = Deadline must be in future
 provider.request.error.providerTickerFormat = Must match pattern RXXXX-99999
 provider.request.error.must-accept = Must check the box
 provider.request.error.currency = Currency must be EUR or €
-provider.request.error.tickerDuplicated = This ticker is already in us
+provider.request.error.tickerDuplicated = This ticker is already in use

@@ -88,7 +88,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 		Collection<Duty> duties = this.repository.findManyDutiesByJobId(entity.getId());
 		if (!duties.isEmpty()) {
-			duties.stream().forEach(d -> this.repository.delete(d));
+			duties.stream().forEach(d -> this.repository.delete(d)); //recommendation:Deleteall
 		}
 
 		this.repository.delete(entity);

@@ -59,6 +59,8 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		Employer employer = this.repository.findOneEmployerById(request.getPrincipal().getActiveRoleId());
 		result.setEmployer(employer);
 
+		result.setFinalMode(false);
+
 		return result;
 	}
 
@@ -67,11 +69,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		//Validation of finalMode
-		boolean finalModeJob;
-		finalModeJob = entity.isFinalMode() == true;
-		errors.state(request, !finalModeJob, "finalMode", "employer.job.error.finalModeJob");
 
 		//Validation of reference
 		boolean referenceDuplicated;

@@ -18,7 +18,7 @@
 <acme:form>
 	<jstl:if test="${(status == 'pending' && command == 'show') || (status == 'pending' || status == 'accepted' || status == 'rejected') && command == 'update'}">
 
-	<acme:form-textbox code="employer.application.form.label.reference" path="reference" placeholder="EEEE-JJJJ:WWWW"/>
+	<acme:form-textbox code="employer.application.form.label.reference" path="reference" placeholder="EEEE-JJJJ:WWWW" readonly="true"/>
 	<acme:form-moment code="employer.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textarea code="employer.application.form.label.statement" path="statement" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.skills" path="skills" readonly="true"/>

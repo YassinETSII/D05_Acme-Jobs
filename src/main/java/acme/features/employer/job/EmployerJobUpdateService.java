@@ -2,14 +2,12 @@
 package acme.features.employer.job;
 
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -61,19 +59,6 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		//Validation of finalMode
-		boolean finalModeJobWithDuties;
-		Collection<Duty> duties = this.repository.findManyDutiesByJobId(entity.getId());
-		finalModeJobWithDuties = entity.isFinalMode() == true && !duties.isEmpty() || entity.isFinalMode() == false && (duties.isEmpty() || !duties.isEmpty());
-		errors.state(request, finalModeJobWithDuties, "finalMode", "employer.job.error.finalModeJob");
-
-		//Validation of reference
-		boolean referenceDuplicated;
-		if (!errors.hasErrors("reference")) { //Check if reference has no errors
-			referenceDuplicated = this.repository.findOneJobByReference(entity.getReference()) != null;
-			errors.state(request, !referenceDuplicated, "reference", "employer.job.error.referenceDuplicated");
-		}
-
 		//Validation of deadline
 		Calendar calendar;
 		Date deadlineMoment, currentMoment;
@@ -95,8 +80,8 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			errors.state(request, acceptedSalaryCurrency, "salary", "employer.job.error.salary");
 		}
 
-		//Validation of 100% percentage
-		int sumDutiesWorkload = this.repository.findManyDutiesByJobId(entity.getId()).stream().mapToInt(t -> t.getTimePercentage()).sum();
+		//Validation of 100% percentage and finalMode Job
+		int sumDutiesWorkload = this.repository.findManyDutiesTimePercentageByJobId(entity.getId()).stream().mapToInt(t -> t).sum();
 		boolean sum100, finalModeJobWith100Workload;
 		sum100 = sumDutiesWorkload == 100;
 		finalModeJobWith100Workload = entity.isFinalMode() == true && sum100 || entity.isFinalMode() == false && (sum100 || !sum100);

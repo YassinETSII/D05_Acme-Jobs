@@ -30,7 +30,6 @@ employer.job.form.button.delete = Delete job
 employer.job.form.button.list-duties = List duties
 employer.job.form.button.list-audit-records = List audit records
 
-employer.job.error.finalModeJob = A job cannot be saved in final mode unless it has at least a duty
 employer.job.error.deleteJobWithApplication = This job cannot be deleted because a worker has applied for it already
 employer.job.error.referenceDuplicated = This reference is already in use
 employer.job.error.deadline = Deadline must be in future

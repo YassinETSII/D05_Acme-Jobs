@@ -71,12 +71,14 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 	@Override
 	public void validate(final Request<Application> request, final Application entity, final Errors errors) {
 
-		//Validation of reference
-		boolean referenceDuplicated;
-		if (!errors.hasErrors("reference")) { //Check if reference has no errors
-			referenceDuplicated = this.repository.findOneApplicationByReference(entity.getReference()) != null;
-			errors.state(request, !referenceDuplicated, "reference", "employer.application.error.referenceDuplicated");
-		}
+		/*
+		 * //Validation of reference
+		 * boolean referenceDuplicated;
+		 * if (!errors.hasErrors("reference")) { //Check if reference has no errors
+		 * referenceDuplicated = this.repository.findOneApplicationByReference(entity.getReference()) != null;
+		 * errors.state(request, !referenceDuplicated, "reference", "employer.application.error.referenceDuplicated");
+		 * }
+		 */
 
 		//Validation of justification
 		boolean justification;

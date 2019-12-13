@@ -30,7 +30,6 @@ employer.job.form.button.delete = Eliminar trabajo
 employer.job.form.button.list-duties = Listar deberes
 employer.job.form.button.list-audit-records = Listar registros de auditoría
 
-employer.job.error.finalModeJob = Un trabajo no puede guardarse en modo final salvo que tenga al menos un deber
 employer.job.error.deleteJobWithApplication = Este trabajo no se puede eliminar porque un trabajador ya ha aplicado por él
 employer.job.error.referenceDuplicated = Esta referencia ya está en uso
 employer.job.error.deadline = La fecha de vencimiento debe estar en el futuro

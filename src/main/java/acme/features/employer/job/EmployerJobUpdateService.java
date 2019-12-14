@@ -41,7 +41,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 

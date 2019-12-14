@@ -13,6 +13,7 @@ import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -30,7 +31,18 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override
@@ -49,7 +61,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary", "description", "moreInfo", "finalMode");
+		request.unbind(entity, model, "title", "deadline", "salary", "description", "moreInfo", "finalMode");
 
 	}
 
@@ -61,13 +73,14 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 		//Validation of deadline
 		Calendar calendar;
-		Date deadlineMoment, currentMoment;
+		Date deadlineMoment, nextWeek;
 		boolean activeDeadline;
 		if (!errors.hasErrors("deadline")) { //Check if deadline has no errors
 			deadlineMoment = entity.getDeadline();
 			calendar = new GregorianCalendar();
-			currentMoment = calendar.getTime();
-			activeDeadline = deadlineMoment.after(currentMoment);
+			calendar.add(Calendar.WEEK_OF_MONTH, 1);
+			nextWeek = calendar.getTime();
+			activeDeadline = deadlineMoment.after(nextWeek);
 			errors.state(request, activeDeadline, "deadline", "employer.job.error.deadline");
 		}
 

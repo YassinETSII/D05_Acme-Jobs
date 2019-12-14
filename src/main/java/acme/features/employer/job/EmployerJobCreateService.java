@@ -24,7 +24,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	EmployerJobRepository repository;
 
 
-	// AbstractCreateService<Administrator, Job> interface --------------
+	// AbstractCreateService<Employer, Job> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -39,7 +39,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "employer");
+		request.bind(entity, errors, "employer", "finalMode");
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary", "description", "moreInfo", "finalMode");
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "description", "moreInfo");
 	}
 
 	@Override
@@ -79,13 +79,14 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		//Validation of deadline
 		Calendar calendar;
-		Date deadlineMoment, currentMoment;
+		Date deadlineMoment, nextWeek;
 		boolean activeDeadline;
 		if (!errors.hasErrors("deadline")) { //Check if deadline has no errors
 			deadlineMoment = entity.getDeadline();
 			calendar = new GregorianCalendar();
-			currentMoment = calendar.getTime();
-			activeDeadline = deadlineMoment.after(currentMoment);
+			calendar.add(Calendar.WEEK_OF_MONTH, 1);
+			nextWeek = calendar.getTime();
+			activeDeadline = deadlineMoment.after(nextWeek);
 			errors.state(request, activeDeadline, "deadline", "employer.job.error.deadline");
 		}
 

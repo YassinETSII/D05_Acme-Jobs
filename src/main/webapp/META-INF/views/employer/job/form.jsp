@@ -40,7 +40,7 @@
 		code="employer.job.form.button.update" 
 		action="/employer/job/update"/>	
 	
-	<jstl:if test="${finalMode == true && command == 'show'}">
+	<jstl:if test="${command == 'show' && finalMode == true || command == 'delete'}">
 		<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ" readonly="true"/>
 		<acme:form-textbox code="employer.job.form.label.title" path="title" readonly="true"/>
 		<acme:form-moment code="employer.job.form.label.deadline" path="deadline" readonly="true"/>
@@ -60,7 +60,10 @@
 		
 	<jstl:if test="${command == 'show'}">
 		<acme:form-submit code="employer.job.form.button.list-duties" action="/employer/duty/list?idJob=${id}" method="get" />
-		<acme:form-submit code="employer.job.form.button.list-audit-records" action="/authenticated/audit-record/list?idJob=${id}" method="get" />	
+	</jstl:if>
+	
+	<jstl:if test="${command == 'show' && finalMode == true}">
+	<acme:form-submit code="employer.job.form.button.list-audit-records" action="/authenticated/audit-record/list?idJob=${id}" method="get" />	
 	</jstl:if>
 		
 	<acme:form-submit test="${command == 'create'}"

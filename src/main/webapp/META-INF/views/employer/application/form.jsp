@@ -21,8 +21,8 @@
 	<acme:form-textbox code="employer.application.form.label.reference" path="reference" placeholder="EEEE-JJJJ:WWWW" readonly="true"/>
 	<acme:form-moment code="employer.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textarea code="employer.application.form.label.statement" path="statement" readonly="true"/>
-	<acme:form-textbox code="employer.application.form.label.skills" path="skills" readonly="true"/>
-	<acme:form-textbox code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.skills" path="skills" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>
 	<acme:form-textarea code="employer.application.form.label.justification" path="justification"/>
 	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.applierWorker" path="worker.identity.fullName" readonly="true"/>	
@@ -39,8 +39,8 @@
 	<acme:form-textbox code="employer.application.form.label.reference" path="reference" placeholder="EEEE-JJJJ:WWWW" readonly="true"/>
 	<acme:form-moment code="employer.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textarea code="employer.application.form.label.statement" path="statement" readonly="true"/>
-	<acme:form-textbox code="employer.application.form.label.skills" path="skills" readonly="true"/>
-	<acme:form-textbox code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.skills" path="skills" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>
 	<acme:form-textarea code="employer.application.form.label.justification" path="justification" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.applierWorker" path="worker.identity.fullName" readonly="true"/>	

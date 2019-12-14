@@ -15,7 +15,6 @@ authenticated.job.form.label.deadline = Fecha de vencimiento:
 authenticated.job.form.label.salary = Salario:
 authenticated.job.form.label.moreInfo = Más información:
 authenticated.job.form.label.description = Descripción:
-authenticated.job.form.label.finalMode = Publicado
 authenticated.job.form.button.list-duties = Listar deberes
 authenticated.job.form.button.list-audit-records = Listar registros de auditoría
 

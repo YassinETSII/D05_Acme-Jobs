@@ -22,7 +22,6 @@
 	<acme:form-money code="authenticated.job.form.label.salary" path="salary"/>
 	<acme:form-url code="authenticated.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="authenticated.job.form.label.description" path="description"/>
-	<acme:form-checkbox code="authenticated.job.form.label.finalMode" path="finalMode"/>
 	
 	<acme:form-submit code="authenticated.job.form.button.list-duties" action="/authenticated/duty/list?idJob=${id}" method="get" />
 	<acme:form-submit code="authenticated.job.form.button.list-audit-records" action="/authenticated/audit-record/list?idJob=${id}" method="get" />

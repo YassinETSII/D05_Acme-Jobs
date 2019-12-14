@@ -73,7 +73,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		boolean deleteApplicatedJob;
 
 		idJob = entity.getId();
-		nummberWorkers = this.repository.numWorkersByJobId(idJob);
+		nummberWorkers = this.repository.countWorkersByJobId(idJob);
 		deleteApplicatedJob = nummberWorkers == 0;
 		errors.state(request, deleteApplicatedJob, "*", "employer.job.error.deleteJobWithApplication");
 	}

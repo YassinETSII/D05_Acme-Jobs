@@ -21,10 +21,10 @@
 		<acme:form-textbox code="employer.duty.form.label.title" path="title" />
 		<acme:form-textarea code="employer.duty.form.label.description" path="description" />
 		<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage" />
-		<acme:form-hidden code="employer.duty.form.label.idJob" path="idJob" readonly="true"/>
+		<acme:form-hidden path="idJob"/>
 	</jstl:if>
 	
-	<jstl:if test="${command == 'show' && job.finalMode == false">
+	<jstl:if test="${command == 'show' && job.finalMode == false}">
 		<acme:form-submit code="employer.duty.form.button.update" 
 		action="/employer/duty/update"/>
 		<acme:form-submit code="employer.duty.form.button.delete" 
@@ -35,7 +35,7 @@
 		<acme:form-textbox code="employer.duty.form.label.title" path="title" readonly="true"/>
 		<acme:form-textarea code="employer.duty.form.label.description" path="description" readonly="true"/>
 		<acme:form-double code="employer.duty.form.label.timePercentage" path="timePercentage" readonly="true"/>
-		<acme:form-hidden code="employer.duty.form.label.idJob" path="idJob" readonly="true"/>
+		<acme:form-hidden path="idJob"/>
 	</jstl:if>		
 	
 	<acme:form-submit test="${command == 'create'}"

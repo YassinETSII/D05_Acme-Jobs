@@ -15,7 +15,6 @@ employer.duty.list.label.title = Title
 employer.duty.form.label.title = Title:
 employer.duty.form.label.description = Description:
 employer.duty.form.label.timePercentage = Time percentage during each week:
-employer.duty.form.label.idJob = Job ID
 
 employer.duty.form.button.create = Create duty
 employer.duty.form.button.update = Update duty

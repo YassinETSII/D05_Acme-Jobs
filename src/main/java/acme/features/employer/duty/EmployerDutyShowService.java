@@ -51,6 +51,8 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 
 		request.unbind(entity, model, "title", "description", "timePercentage", "job");
 
+		int idJob = this.repository.findOneJobByDutyId(request.getModel().getInteger("id"));
+		model.setAttribute("idJob", idJob);
 	}
 
 	@Override

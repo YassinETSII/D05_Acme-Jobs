@@ -15,6 +15,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
+import acme.utilities.CheckSpamWords;
 
 @Service
 public class EmployerJobUpdateService implements AbstractUpdateService<Employer, Job> {
@@ -99,6 +100,15 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		sum100 = sumDutiesWorkload == 100;
 		finalModeJobWith100Workload = entity.isFinalMode() == true && sum100 || entity.isFinalMode() == false && (sum100 || !sum100);
 		errors.state(request, finalModeJobWith100Workload, "*", "employer.job.error.dutiesPercentage");
+
+		//Validation of spam
+		String description;
+		boolean checkSpam;
+		if (!errors.hasErrors("description")) {
+			description = entity.getDescription();
+			checkSpam = CheckSpamWords.isSpam(description, this.repository.findConfiguration());
+			errors.state(request, !checkSpam, "description", "employer.job.error.spam");
+		}
 	}
 
 	@Override

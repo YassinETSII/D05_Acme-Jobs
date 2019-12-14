@@ -14,6 +14,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.CheckSpamWords;
 
 @Service
 public class EmployerJobCreateService implements AbstractCreateService<Employer, Job> {
@@ -97,6 +98,15 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			salaryCurrency = entity.getSalary().getCurrency();
 			acceptedSalaryCurrency = salaryCurrency.equals("EUR") || salaryCurrency.equals("€");
 			errors.state(request, acceptedSalaryCurrency, "salary", "employer.job.error.salary");
+		}
+
+		//Validation of spam
+		String description;
+		boolean checkSpam;
+		if (!errors.hasErrors("description")) {
+			description = entity.getDescription();
+			checkSpam = CheckSpamWords.isSpam(description, this.repository.findConfiguration());
+			errors.state(request, !checkSpam, "description", "employer.job.error.spam");
 		}
 	}
 

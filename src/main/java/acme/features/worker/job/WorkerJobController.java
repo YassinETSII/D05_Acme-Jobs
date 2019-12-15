@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.components.CustomCommand;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.BasicCommand;
@@ -19,16 +20,16 @@ public class WorkerJobController extends AbstractController<Worker, Job> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private WorkerJobListService	listService;
+	private WorkerJobListNotAppliedService	listNotAppliedService;
 	@Autowired
-	private WorkerJobShowService	showService;
+	private WorkerJobShowService			showService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addCustomCommand(CustomCommand.LIST_NOT_APPLIED, BasicCommand.LIST, this.listNotAppliedService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

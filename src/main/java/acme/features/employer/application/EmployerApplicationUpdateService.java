@@ -11,6 +11,7 @@ import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -28,7 +29,19 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int applicationId;
+		Application application;
+		Employer employer;
+		Principal principal;
+
+		applicationId = request.getModel().getInteger("id");
+		application = this.repository.findOneApplicationById(applicationId);
+		employer = application.getJob().getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getUserAccount().getId() == principal.getAccountId() && application.getStatus().equals("pending");
+
+		return result;
 	}
 
 	@Override
@@ -70,15 +83,6 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 
 	@Override
 	public void validate(final Request<Application> request, final Application entity, final Errors errors) {
-
-		/*
-		 * //Validation of reference
-		 * boolean referenceDuplicated;
-		 * if (!errors.hasErrors("reference")) { //Check if reference has no errors
-		 * referenceDuplicated = this.repository.findOneApplicationByReference(entity.getReference()) != null;
-		 * errors.state(request, !referenceDuplicated, "reference", "employer.application.error.referenceDuplicated");
-		 * }
-		 */
 
 		//Validation of justification
 		boolean justification;

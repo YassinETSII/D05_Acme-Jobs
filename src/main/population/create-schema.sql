@@ -28,9 +28,9 @@
         `version` integer not null,
         `justification` varchar(1024),
         `moment` datetime(6),
-        `qualifications` varchar(255),
+        `qualifications` varchar(1024),
         `reference` varchar(255),
-        `skills` varchar(255),
+        `skills` varchar(1024),
         `statement` varchar(1024),
         `status` varchar(255),
         `job_id` integer not null,
@@ -56,6 +56,16 @@
         `user_account_id` integer,
         `firm` varchar(255),
         `responsibility_statement` varchar(1024),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditor_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `firm` varchar(255),
+        `responsibility_statement` varchar(1024),
+        `status` varchar(255),
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -331,6 +341,7 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
+create index IDXavmpyh8rpetaj6xntvliy5nm1 on `application` (`reference` asc, `status` asc, `moment` desc);
 
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
@@ -390,6 +401,11 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `auditor_request` 
+       add constraint `FK49gx0x5hlvlehwyvgesb15kw3` 
+       foreign key (`user_id`) 
+       references `authenticated` (`id`);
 
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 

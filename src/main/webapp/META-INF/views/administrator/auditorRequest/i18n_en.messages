@@ -1,0 +1,24 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: an administrator can accept or reject a request to become an auditor.
+administrator.auditorRequest.form.label.firm = Firm:
+administrator.auditorRequest.form.label.responsibilityStatement = Responsibility Statement:
+administrator.auditorRequest.form.label.userName = User:
+administrator.auditorRequest.form.label.status = Accept the request?
+administrator.auditorRequest.form.label.status.pending = Pending
+administrator.auditorRequest.form.label.status.accepted = Accept
+administrator.auditorRequest.form.label.status.rejected = Reject
+
+administrator.auditorRequest.form.button.update = Update request
+administrator.auditorRequest.form.button.return = Return
+
+########################################### Feature: administrator lists auditor requests.
+administrator.auditorRequest.list.label.userName = User

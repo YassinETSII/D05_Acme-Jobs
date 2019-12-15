@@ -22,7 +22,6 @@
 		<acme:form-money code="worker.job.form.label.salary" path="salary"/>
 		<acme:form-url code="worker.job.form.label.moreInfo" path="moreInfo"/>
 		<acme:form-textarea code="worker.job.form.label.description" path="description"/>
-		<acme:form-checkbox code="worker.job.form.label.finalMode" path="finalMode"/>		
 	
 		<acme:form-submit code="worker.job.form.button.add-application" action="/worker/application/create?idJob=${id}" method="get" />
 		

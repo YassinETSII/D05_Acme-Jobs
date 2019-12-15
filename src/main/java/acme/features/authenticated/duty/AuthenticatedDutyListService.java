@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -26,11 +27,13 @@ public class AuthenticatedDutyListService implements AbstractListService<Authent
 	//An authenticated principal can not list the duties of a not finalMode job
 	@Override
 	public boolean authorise(final Request<Duty> request) {
-		assert request != null;
-
 		boolean result;
-		Collection<Duty> duties = this.repository.findManyDutiesByJobId(request.getModel().getInteger("idJob"));
-		result = duties.stream().allMatch(d -> d.getJob().isFinalMode() == true);
+		int jobId;
+		Job job;
+
+		jobId = request.getModel().getInteger("idJob");
+		job = this.repository.findOneJobById(jobId);
+		result = job.isFinalMode();
 		return result;
 	}
 

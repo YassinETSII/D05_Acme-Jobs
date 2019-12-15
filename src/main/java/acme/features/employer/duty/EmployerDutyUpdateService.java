@@ -1,8 +1,6 @@
 
 package acme.features.employer.duty;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +9,7 @@ import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -28,7 +27,19 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Duty dutyJob;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		dutyJob = this.repository.findOneDutyById(jobId);
+		employer = dutyJob.getJob().getEmployer();
+		principal = request.getPrincipal();
+
+		result = !dutyJob.getJob().isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override
@@ -54,23 +65,6 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		//Validation of timePercentage
-
-		if (!errors.hasErrors("timePercentage")) {
-			Collection<Duty> duties = this.repository.findManyDutiesByDutyId(request.getModel().getInteger("id"));
-			int oldDuty = this.repository.findOneDutyById(request.getModel().getInteger("id")).getTimePercentage();
-
-			int sumOldDuties = duties.stream().mapToInt(t -> t.getTimePercentage()).sum();
-
-			int newDuty = entity.getTimePercentage();
-
-			int sum = sumOldDuties + newDuty - oldDuty;
-
-			boolean weeklyWorkload = sum <= 100;
-			errors.state(request, weeklyWorkload, "timePercentage", "employer.duty.error.weeklyWorkload");
-		}
-
 	}
 
 	@Override

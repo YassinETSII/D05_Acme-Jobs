@@ -16,7 +16,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class WorkerJobListService implements AbstractListService<Worker, Job> {
+public class WorkerJobListNotAppliedService implements AbstractListService<Worker, Job> {
 
 	// Internal state ---------------------------------------------------------
 

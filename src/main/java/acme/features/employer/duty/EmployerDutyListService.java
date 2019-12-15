@@ -2,12 +2,12 @@
 package acme.features.employer.duty;
 
 import java.util.Collection;
-import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -28,23 +28,17 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 	//An employer principal can not list the duties of a not finalMode job from another employer
 	@Override
 	public boolean authorise(final Request<Duty> request) {
-		assert request != null;
 		boolean result;
-		Principal principal = request.getPrincipal();
+		int jobId;
+		Job job;
 		Employer employer;
-		int idEmployer;
+		Principal principal;
 
-		int idJob = request.getModel().getInteger("idJob");
-		Collection<Duty> duties = this.repository.findManyDutiesByJobId(idJob);
-
-		employer = this.repository.findOneEmployerById(request.getPrincipal().getActiveRoleId());
-		idEmployer = employer.getUserAccount().getId();
-
-		Predicate<Duty> condition1 = d -> d.getJob().isFinalMode() == true;
-		Predicate<Duty> condition2 = d -> d.getJob().isFinalMode() == false;
-		boolean condition3 = idEmployer == principal.getAccountId();
-
-		result = duties.stream().allMatch(condition1) || duties.stream().anyMatch(condition2) && condition3;
+		jobId = request.getModel().getInteger("idJob");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 		return result;
 	}
 

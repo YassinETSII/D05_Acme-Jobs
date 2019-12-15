@@ -2,18 +2,17 @@
 package acme.features.employer.job;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.applications.Application;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
@@ -25,13 +24,24 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 	EmployerJobRepository repository;
 
 
-	// AbstractDeleteService<Administrator, Job> interface --------------
+	// AbstractDeleteService<Employer, Job> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("id");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = employer.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override
@@ -58,14 +68,13 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		Collection<Application> applications;
+		Long nummberWorkers;
 		int idJob;
 		boolean deleteApplicatedJob;
 
 		idJob = entity.getId();
-		applications = this.repository.findManyApplicationsByJobId(idJob);
-		deleteApplicatedJob = applications.stream().map(w -> w.getWorker()).collect(Collectors.toList()).isEmpty();
-
+		nummberWorkers = this.repository.countWorkersByJobId(idJob);
+		deleteApplicatedJob = nummberWorkers == 0;
 		errors.state(request, deleteApplicatedJob, "*", "employer.job.error.deleteJobWithApplication");
 	}
 
@@ -87,9 +96,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 
 		Collection<Duty> duties = this.repository.findManyDutiesByJobId(entity.getId());
-		if (!duties.isEmpty()) {
-			duties.stream().forEach(d -> this.repository.delete(d)); //recommendation:Deleteall
-		}
+		duties.stream().forEach(d -> this.repository.delete(d));
 
 		this.repository.delete(entity);
 	}

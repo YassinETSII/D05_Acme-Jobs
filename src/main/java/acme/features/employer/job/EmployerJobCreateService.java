@@ -14,6 +14,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.CheckSpamWords;
 
 @Service
 public class EmployerJobCreateService implements AbstractCreateService<Employer, Job> {
@@ -24,7 +25,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	EmployerJobRepository repository;
 
 
-	// AbstractCreateService<Administrator, Job> interface --------------
+	// AbstractCreateService<Employer, Job> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -39,7 +40,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "employer");
+		request.bind(entity, errors, "employer", "finalMode");
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline", "salary", "description", "moreInfo", "finalMode");
+		request.unbind(entity, model, "reference", "title", "deadline", "salary", "description", "moreInfo");
 	}
 
 	@Override
@@ -79,13 +80,14 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		//Validation of deadline
 		Calendar calendar;
-		Date deadlineMoment, currentMoment;
+		Date deadlineMoment, nextWeek;
 		boolean activeDeadline;
 		if (!errors.hasErrors("deadline")) { //Check if deadline has no errors
 			deadlineMoment = entity.getDeadline();
 			calendar = new GregorianCalendar();
-			currentMoment = calendar.getTime();
-			activeDeadline = deadlineMoment.after(currentMoment);
+			calendar.add(Calendar.WEEK_OF_MONTH, 1);
+			nextWeek = calendar.getTime();
+			activeDeadline = deadlineMoment.after(nextWeek);
 			errors.state(request, activeDeadline, "deadline", "employer.job.error.deadline");
 		}
 
@@ -96,6 +98,15 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			salaryCurrency = entity.getSalary().getCurrency();
 			acceptedSalaryCurrency = salaryCurrency.equals("EUR") || salaryCurrency.equals("€");
 			errors.state(request, acceptedSalaryCurrency, "salary", "employer.job.error.salary");
+		}
+
+		//Validation of spam
+		String description;
+		boolean checkSpam;
+		if (!errors.hasErrors("description")) {
+			description = entity.getDescription();
+			checkSpam = CheckSpamWords.isSpam(description, this.repository.findConfiguration());
+			errors.state(request, !checkSpam, "description", "employer.job.error.spam");
 		}
 	}
 

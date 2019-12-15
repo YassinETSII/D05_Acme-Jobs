@@ -1,8 +1,6 @@
 
 package acme.features.employer.duty;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +10,7 @@ import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -23,13 +22,24 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 	EmployerDutyRepository repository;
 
 
-	// AbstractCreateService<Administrator, Duty> interface --------------
+	// AbstractCreateService<Employer, Duty> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int jobId;
+		Job job;
+		Employer employer;
+		Principal principal;
+
+		jobId = request.getModel().getInteger("idJob");
+		job = this.repository.findOneJobById(jobId);
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override
@@ -70,15 +80,6 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		//Validation of timePercentage
-		if (!errors.hasErrors("timePercentage")) {
-			int idJob = request.getModel().getInteger("idJob");
-			Collection<Duty> duties = this.repository.findManyDutiesByJobId(idJob);
-			int sum = duties.stream().mapToInt(t -> t.getTimePercentage()).sum() + entity.getTimePercentage();
-			boolean weeklyWorkload = sum <= 100;
-			errors.state(request, weeklyWorkload, "timePercentage", "employer.duty.error.weeklyWorkload");
-		}
 	}
 
 	@Override

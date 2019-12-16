@@ -117,6 +117,8 @@ master.menu.auditor.job.list-not-mine = List jobs I didn't record an audit
 master.menu.sponsor = Sponsor
 master.menu.sponsor.commercialBanner.list-mine = List my commercial banners
 master.menu.sponsor.nonCommercialBanner.list-mine = List my non commercial banners
+master.menu.sponsor.creditCard.create = Create credit card
+master.menu.sponsor.creditCard.form = Show credit card
 
 # master.menu.user-account ####################################################
 
@@ -132,6 +134,8 @@ master.menu.user-account.become-worker = Become a worker
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-auditor = Become an auditor
 master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-sponsor = Become a sponsor
+master.menu.user-account.sponsor = Sponsor data
 
 # master.footer ###############################################################
 

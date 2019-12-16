@@ -116,6 +116,9 @@ master.menu.auditor.job.list-not-mine = Listar trabajos que no he auditado
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.commercialBanner.list-mine = Listar mis banners comerciales
+master.menu.sponsor.nonCommercialBanner.list-mine = Listar mis banners no comerciales
+master.menu.sponsor.creditCard.create = Crear tarjeta de credito
+master.menu.sponsor.creditCard.form = Mostrar tarjeta de credito
 
 # master.menu.user-account ####################################################
 
@@ -131,6 +134,8 @@ master.menu.user-account.become-worker = Hazte trabajador
 master.menu.user-account.worker = Datos del trabajador
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos del auditor
+master.menu.user-account.become-sponsor = Hazte sponsor
+master.menu.user-account.sponsor = Datos del sponsor
 
 ﻿# master.footer ###############################################################
 

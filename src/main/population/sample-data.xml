@@ -1029,12 +1029,7 @@
 		<property name="picture" value="https://www.tumblr.com/commercialBannerSample01"/>
 		<property name="slogan" value="commercial banner slogan sample 1"/>
 		<property name="URL" value="https://www.tumblr.com"/>
-		<property name="holder" value="Anselmo Rocoso Quintero"/>
-		<property name="expirationMonth" value="11"/>
-		<property name="expirationYear" value="22"/>
-		<property name="creditCardNumber" value="4916164401239057"/>
-		<property name="brand" value="VISA"/>
-		<property name="CVV" value="2134"/>
+		<property name="creditCard" ref = "creditCard01"/>
 		<property name="sponsor" ref="sponsor1Sponsor" />
 	</bean>	
 	
@@ -1042,12 +1037,7 @@
 		<property name="picture" value="https://www.tumblr.com/commercialBannerSample02"/>
 		<property name="slogan" value="commercial banner slogan sample 2"/>
 		<property name="URL" value="https://www.tumblr.com"/>
-		<property name="holder" value="Martina Juanes Pomodoro"/>
-		<property name="expirationMonth" value="09"/>
-		<property name="expirationYear" value="20"/>
-		<property name="creditCardNumber" value="4258549763626089"/>
-		<property name="brand" value="VISA"/>
-		<property name="CVV" value="114"/>
+		<property name="creditCard" ref = "creditCard02"/>
 		<property name="sponsor" ref="sponsor3Sponsor" />
 	</bean>	
 	

@@ -69,12 +69,10 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 		request.unbind(entity, model, "organisation");
 		Principal principal = request.getPrincipal();
 		boolean noCreditCard = this.repository.findOneSponsorByUserAccountId(principal.getAccountId()).getCreditCard() == null;
-		System.out.println(noCreditCard);
 		model.setAttribute("noCreditCard", noCreditCard);
 
 		if (entity.getCreditCard() != null) {
 			int idCreditCard = entity.getCreditCard().getId();
-			System.out.println(idCreditCard);
 			model.setAttribute("idCreditCard", idCreditCard);
 		}
 	}

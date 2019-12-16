@@ -27,21 +27,13 @@
 			code="sponsor.creditCard.form.button.update" 
 			action="/sponsor/credit-card/update"/>
 		
-		<acme:form-submit test="${command == 'show'}" 
-			code="sponsor.creditCard.form.button.delete" 
-			action="/sponsor/credit-card/delete"/>
-		
 		<acme:form-submit test="${command == 'create'}"
 			code="sponsor.creditCard.form.button.create"
-			action="/sponsor/credit-card/create?id=${idSponsor}" method="post"/>
+			action="/sponsor/credit-card/create?idSponsor=${idSponsor}" method="post"/>
 			
 		<acme:form-submit test="${command == 'update'}"
 			code="sponsor.creditCard.form.button.update"
-			action="/sponsor/credit-card/update"/>
-		
-		<acme:form-submit test="${command == 'delete'}"
-			code="sponsor.creditCard.form.button.delete"
-			action="/sponsor/credit-card/delete"/>		
+			action="/sponsor/credit-card/update"/>		
 		
 	<acme:form-return code="sponsor.creditCard.form.button.return"/>
 </acme:form>

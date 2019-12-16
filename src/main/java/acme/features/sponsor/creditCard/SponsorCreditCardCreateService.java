@@ -13,6 +13,7 @@ import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -30,7 +31,16 @@ public class SponsorCreditCardCreateService implements AbstractCreateService<Spo
 	public boolean authorise(final Request<CreditCard> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int sponsorId;
+		Sponsor sponsor;
+		Principal principal;
+
+		sponsorId = request.getModel().getInteger("idSponsor");
+		sponsor = this.repository.findOneSponsorById(sponsorId);
+		principal = request.getPrincipal();
+		result = sponsor.getCreditCard() == null && sponsor.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override
@@ -93,6 +103,10 @@ public class SponsorCreditCardCreateService implements AbstractCreateService<Spo
 		assert entity != null;
 
 		this.repository.save(entity);
+		Principal principal = request.getPrincipal();
+		Sponsor sponsor = this.repository.findOneSponsorByUserAccountId(principal.getAccountId());
+		sponsor.setCreditCard(entity);
+		this.repository.save(sponsor);
 	}
 
 }

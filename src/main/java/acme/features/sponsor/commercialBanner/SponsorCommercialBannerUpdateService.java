@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
 import acme.entities.roles.Sponsor;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class SponsorCommercialBannerShowService implements AbstractShowService<Sponsor, CommercialBanner> {
+public class SponsorCommercialBannerUpdateService implements AbstractUpdateService<Sponsor, CommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -20,24 +21,33 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 	SponsorCommercialBannerRepository repository;
 
 
-	// AbstractShowService<Sponsor, CommercialBanner> interface --------------
+	// AbstractUpdateService<Sponsor, CommercialBanner> interface --------------
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
+
 		boolean result;
-		int commercialBannerId;
-		CommercialBanner commercial;
+		int bannerId;
 		Sponsor sponsor;
 		Principal principal;
+		CommercialBanner banner;
 
-		commercialBannerId = request.getModel().getInteger("id");
-		commercial = this.repository.findOneCommercialBannerById(commercialBannerId);
-		sponsor = commercial.getSponsor();
 		principal = request.getPrincipal();
-		result = sponsor.getUserAccount().getId() == principal.getAccountId();
-
+		bannerId = request.getModel().getInteger("id");
+		banner = this.repository.findOneCommercialBannerById(bannerId);
+		sponsor = banner.getSponsor();
+		result = sponsor.getCreditCard() != null && sponsor.getUserAccount().getId() == principal.getAccountId();
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -45,14 +55,21 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
 		request.unbind(entity, model, "picture", "slogan", "URL", "creditCard.holder", "creditCard.expirationMonth", "creditCard.expirationYear", "creditCard.creditCardNumber", "creditCard.brand", "creditCard.CVV");
+	}
+
+	@Override
+	public void validate(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
 
 	}
 
 	@Override
 	public CommercialBanner findOne(final Request<CommercialBanner> request) {
 		assert request != null;
-
 		CommercialBanner result;
 		int id;
 
@@ -60,6 +77,15 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 		result = this.repository.findOneCommercialBannerById(id);
 
 		return result;
+	}
+
+	@Override
+	public void update(final Request<CommercialBanner> request, final CommercialBanner entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.save(entity);
+
 	}
 
 }

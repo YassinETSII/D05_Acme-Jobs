@@ -19,32 +19,12 @@
 	<acme:form-url code="administrator.commercialBanner.form.label.picture" path="picture"/>
 	<acme:form-textbox code="administrator.commercialBanner.form.label.slogan" path="slogan"/>
 	<acme:form-url code="administrator.commercialBanner.form.label.url" path="URL"/>
-	<acme:form-textbox code="administrator.commercialBanner.form.label.holder" path="holder"/>
-	<acme:form-integer code="administrator.commercialBanner.form.label.expirationMonth" path="expirationMonth"/>
-	<acme:form-integer code="administrator.commercialBanner.form.label.expirationYear" path="expirationYear"/>
-	<acme:form-textbox code="administrator.commercialBanner.form.label.creditCardNumber" path="creditCardNumber"/>
-	<acme:form-textbox code="administrator.commercialBanner.form.label.brand" path="brand"/>
-	<acme:form-textbox code="administrator.commercialBanner.form.label.CVV" path="CVV"/>
-	
-	<acme:form-submit test="${command == 'show'}"
-		code="administrator.commercialBanner.form.button.update"
-		action="/administrator/commercial-banner/update"/>
-		
-	<acme:form-submit test="${command == 'show'}"
-		code="administrator.commercialBanner.form.button.delete"
-		action="/administrator/commercial-banner/delete"/>
-		
-	<acme:form-submit test="${command == 'create'}"
-		code="administrator.commercialBanner.form.button.create"
-		action="/administrator/commercial-banner/create"/>	
-		
-	<acme:form-submit test="${command == 'update'}"
-		code="administrator.commercialBanner.form.button.update"
-		action="/administrator/commercial-banner/update"/>
-		
-	<acme:form-submit test="${command == 'delete'}"
-		code="administrator.commercialBanner.form.button.delete"
-		action="/administrator/commercial-banner/delete"/>
+	<acme:form-textbox code="administrator.commercialBanner.form.label.holder" path="creditCard.holder"/>
+	<acme:form-integer code="administrator.commercialBanner.form.label.expirationMonth" path="creditCard.expirationMonth"/>
+	<acme:form-integer code="administrator.commercialBanner.form.label.expirationYear" path="creditCard.expirationYear"/>
+	<acme:form-textbox code="administrator.commercialBanner.form.label.creditCardNumber" path="creditCard.creditCardNumber"/>
+	<acme:form-textbox code="administrator.commercialBanner.form.label.brand" path="creditCard.brand"/>
+	<acme:form-textbox code="administrator.commercialBanner.form.label.CVV" path="creditCard.CVV"/>
 	
 	<acme:form-return code="administrator.commercialBanner.form.button.return"/>
 </acme:form>

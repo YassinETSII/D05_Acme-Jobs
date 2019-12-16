@@ -13,6 +13,7 @@ import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -30,7 +31,16 @@ public class SponsorCreditCardUpdateService implements AbstractUpdateService<Spo
 	public boolean authorise(final Request<CreditCard> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int ccId;
+		Sponsor sponsor;
+		Principal principal;
+
+		ccId = request.getModel().getInteger("id");
+		sponsor = this.repository.findOneSponsorByCreditCardId(ccId);
+		principal = request.getPrincipal();
+		result = sponsor.getCreditCard() != null && sponsor.getUserAccount().getId() == principal.getAccountId();
+		return result;
 	}
 
 	@Override
@@ -40,6 +50,7 @@ public class SponsorCreditCardUpdateService implements AbstractUpdateService<Spo
 		assert model != null;
 
 		request.unbind(entity, model, "holder", "expirationMonth", "expirationYear", "creditCardNumber", "brand", "CVV");
+
 	}
 
 	@Override

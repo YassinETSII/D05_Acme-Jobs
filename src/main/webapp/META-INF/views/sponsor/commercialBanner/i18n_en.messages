@@ -19,6 +19,9 @@ sponsor.commercialBanner.form.label.creditCardNumber = Credit card number:
 sponsor.commercialBanner.form.label.brand = Brand:
 sponsor.commercialBanner.form.label.CVV = CVV:
 
+sponsor.commercialBanner.form.button.create = Create commercial banner
+sponsor.commercialBanner.form.button.update = Update commercial banner
+sponsor.commercialBanner.form.button.delete = Delete commercial banner
 sponsor.commercialBanner.form.button.return = Return
 
 ########################################### Feature: sponsor lists commercial banners.

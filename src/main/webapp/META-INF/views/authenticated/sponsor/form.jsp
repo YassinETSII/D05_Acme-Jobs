@@ -22,12 +22,15 @@
 	<acme:form-submit test="${command == 'update'}" code="authenticated.sponsor.form.button.update" action="/authenticated/sponsor/update"/>
 	
 	<jstl:if test="${command == 'update' && noCreditCard==true}">
-		<acme:form-submit code="authenticated.sponsor.form.button.add-creditCard" action="/sponsor/credit-card/create?idSponsor=${idSponsor}" method="get" />
+		<acme:form-submit code="authenticated.sponsor.form.button.add-creditCard" action="/sponsor/credit-card/create?idSponsor=${id}" method="get" />
 	</jstl:if>
 	
 	<jstl:if test="${command == 'update' && noCreditCard==false}">
-		<acme:form-submit code="authenticated.sponsor.form.button.creditCard" action="/sponsor/credit-card/show?id=${idCreditCard}" method="get" />
+		<acme:form-submit code="authenticated.sponsor.form.button.creditCard" action="/sponsor/credit-card/show?id=${idCreditCard}&idSponsor=${id}" method="get" />
+		<acme:form-submit code="authenticated.sponsor.form.button.create-commercialBanner" action="/sponsor/commercial-banner/create" method="get" />
 	</jstl:if>		
+	
+	<acme:form-submit code="authenticated.sponsor.form.button.create-nonCommercialBanner" action="/sponsor/non-commercial-banner/create" method="get" />
 	
 	<acme:form-return code="authenticated.sponsor.form.button.return"/>
 </acme:form>

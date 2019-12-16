@@ -109,12 +109,7 @@
         `url` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
-        `cvv` varchar(255),
-        `brand` varchar(255),
-        `credit_card_number` varchar(255),
-        `expiration_month` integer,
-        `expiration_year` integer,
-        `holder` varchar(255),
+        `credit_card_id` integer not null,
         `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -420,6 +415,11 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `commercial_banner` 
+       add constraint `FKfp0yot74q1m8ofbclq3nlfidw` 
+       foreign key (`credit_card_id`) 
+       references `credit_card` (`id`);
 
     alter table `commercial_banner` 
        add constraint `FKd0k52g7lcacefcp62kb4p9aor` 

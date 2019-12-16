@@ -16,5 +16,7 @@ authenticated.participation.form.button.addToThread = Añadir participante al hi
 authenticated.participation.form.button.removeFromThread = Quitar participante del hilo
 authenticated.participation.form.button.return = Volver
 
+authenticated.participation.error.deleteCreator = No puedes borrar el creador de este hilo
+
 ########################################### Feature: autenticado lista participantes de un hilo
 authenticated.participation.list.label.userName = Usuario

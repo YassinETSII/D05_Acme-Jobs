@@ -35,7 +35,7 @@
 		<acme:form-submit code="authenticated.participation.form.button.removeFromThread" action="/authenticated/participation/delete"/>
 	</jstl:if>
 	
-	<jstl:if test="${command == 'delete' && self == false}">
+	<jstl:if test="${command == 'delete'}">
 		<acme:form-textbox code="authenticated.participation.form.label.thread" path="thread.title" readonly="true"/>
 		<acme:form-textbox code="authenticated.participation.form.label.userName" path="participant.identity.fullName" readonly="true"/>
 		<acme:form-submit code="authenticated.participation.form.button.removeFromThread" action="/authenticated/participation/delete"/>

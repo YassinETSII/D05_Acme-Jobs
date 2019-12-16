@@ -63,6 +63,13 @@ public class AuthenticatedParticipationDeleteService implements AbstractDeleteSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean deleteCreator;
+		if (!errors.hasErrors("participant")) {
+			Authenticated creator = this.repository.findOneParticipationById(request.getModel().getInteger("id")).getThread().getCreator();
+			deleteCreator = !entity.getParticipant().equals(creator);
+			errors.state(request, deleteCreator, "*", "authenticated.participation.error.deleteCreator");
+		}
 	}
 
 	@Override

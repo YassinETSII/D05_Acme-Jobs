@@ -44,6 +44,13 @@
 	<acme:form-submit test="${command == 'show' && finalMode == false}" 
 		code="auditor.auditRecord.form.button.update" 
 		action="/auditor/audit-record/update"/>
+	<acme:form-submit test="${command == 'show' && finalMode == false}"
+	code="auditor.auditRecord.form.button.delete" 
+		action="/auditor/audit-record/delete"/>
+		
+	<acme:form-submit test="${command == 'delete'}"
+		code="auditor.auditRecord.form.button.delete" 
+		action="/auditor/audit-record/delete"/>
 		
 	<acme:form-return code="auditor.auditRecord.form.button.return"/>
 </acme:form>

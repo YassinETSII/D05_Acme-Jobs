@@ -17,6 +17,7 @@ auditor.auditRecord.form.label.job = Job:
 
 auditor.auditRecord.form.button.create = Create audit record
 auditor.auditRecord.form.button.update = Update audit record
+auditor.auditRecord.form.button.delete = Delete audit record
 auditor.auditRecord.form.button.return = Return
 
 ########################################### Feature: auditor lists audit records.

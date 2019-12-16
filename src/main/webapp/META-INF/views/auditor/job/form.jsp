@@ -23,8 +23,8 @@
 	<acme:form-money code="auditor.job.form.label.salary" path="salary"/>
 	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="auditor.job.form.label.description" path="description"/>
-	<acme:form-checkbox code="auditor.job.form.label.finalMode" path="finalMode"/>
 
+	<acme:form-submit code="auditor.job.form.button.write-record" action="/auditor/audit-record/create?idJob=${id}" method="get" />
 	<acme:form-submit code="auditor.job.form.button.list-duties" action="/authenticated/duty/list?idJob=${id}" method="get" />
 	<acme:form-submit code="auditor.job.form.button.list-audit-records" action="/auditor/audit-record/list?idJob=${id}" method="get" />
 	

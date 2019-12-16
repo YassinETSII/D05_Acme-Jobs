@@ -12,7 +12,6 @@
 authenticated.auditRecord.form.label.title = Title:
 authenticated.auditRecord.form.label.moment = Moment of creation:
 authenticated.auditRecord.form.label.body = Body:
-authenticated.auditRecord.form.label.finalMode = Published
 authenticated.auditRecord.form.label.job = Job:
 
 authenticated.auditRecord.form.button.return = Return

@@ -103,7 +103,7 @@ master.menu.employer.application.listMine = Listar mis aplicaciones
 # master.menu.worker ##########################################################
 
 master.menu.worker = Trabajador
-master.menu.worker.job.list = Listar trabajos
+master.menu.worker.job.list-not-applied = Listar trabajos que no he aplicado
 master.menu.worker.application.list-mine = Listar mis aplicaciones
 
 # master.menu.auditor ##########################################################

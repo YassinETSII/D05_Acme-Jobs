@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.messageThread;
+package acme.features.authenticated.participation;
 
 import javax.annotation.PostConstruct;
 
@@ -7,25 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.messageThreads.MessageThread;
+import acme.entities.participations.Participation;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/message-thread/")
-public class AuthenticatedMessageThreadController extends AbstractController<Authenticated, MessageThread> {
+@RequestMapping("/authenticated/participation/")
+public class AuthenticatedParticipationController extends AbstractController<Authenticated, Participation> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedMessageThreadListService	listService;
+	private AuthenticatedParticipationListService	listService;
 	@Autowired
-	private AuthenticatedMessageThreadShowService	showService;
+	private AuthenticatedParticipationShowService	showService;
 	@Autowired
-	private AuthenticatedMessageThreadCreateService	createService;
+	private AuthenticatedParticipationCreateService	createService;
 	@Autowired
-	private AuthenticatedMessageThreadUpdateService	updateService;
+	private AuthenticatedParticipationDeleteService	deleteService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -35,6 +35,6 @@ public class AuthenticatedMessageThreadController extends AbstractController<Aut
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 }

@@ -63,9 +63,21 @@
        drop 
        foreign key `FKik4epe9dp5q6uenarfyia7xin`;
 
+    alter table `message_thread` 
+       drop 
+       foreign key `FK3fa4h4tfet2kocvatib2ovhsa`;
+
     alter table `non_commercial_banner` 
        drop 
        foreign key `FKpcpr0xb5k7s4rxv5pulstt5v9`;
+
+    alter table `participation` 
+       drop 
+       foreign key `FKl3oifwo53p0xo35t6hlositwc`;
+
+    alter table `participation` 
+       drop 
+       foreign key `FKgddyc36rp2p6av1d3w529nf6e`;
 
     alter table `provider` 
        drop 
@@ -130,6 +142,8 @@
     drop table if exists `non_commercial_banner`;
 
     drop table if exists `offer`;
+
+    drop table if exists `participation`;
 
     drop table if exists `provider`;
 

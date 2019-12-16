@@ -38,6 +38,7 @@ master.menu.authenticated.offer.list = List offers
 master.menu.authenticated.challenge.list = List challenges
 master.menu.authenticated.job.list = List jobs
 master.menu.authenticated.messageThread.list = List message threads
+master.menu.authenticated.messageThread.create = Create message thread
 
 # master.menu.anonymous #######################################################
 

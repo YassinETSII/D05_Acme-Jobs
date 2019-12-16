@@ -11,9 +11,14 @@
 ########################################### Feature: authenticated shows a message thread.
 authenticated.messageThread.form.label.title = Title:
 authenticated.messageThread.form.label.moment = Moment of creation:
+authenticated.messageThread.form.label.creator = Creator of the thread:
 authenticated.messageThread.form.label.userNameList = Users involved:
+authenticated.messageThread.form.button.list-participants = List participants
+authenticated.messageThread.form.button.add-participant = Add participant
 authenticated.messageThread.form.button.list-messages = List messages
 
+authenticated.messageThread.form.button.create = Create Message thread
+authenticated.messageThread.form.button.update = Update Message thread
 authenticated.messageThread.form.button.return = Return
 
 ########################################### Feature: authenticated lists message threads.

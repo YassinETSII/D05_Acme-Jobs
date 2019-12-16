@@ -56,8 +56,9 @@
 			<acme:menu-suboption code="master.menu.authenticated.challenge.list" action="/authenticated/challenge/list"/>	
 			<acme:menu-separator/>			
 			<acme:menu-suboption code="master.menu.authenticated.job.list" action="/authenticated/job/list"/>
-			<acme:menu-separator/>			
-			<acme:menu-suboption code="master.menu.authenticated.messageThread.list" action="/authenticated/message-thread/list"/>
+			<acme:menu-separator/>		
+			<acme:menu-suboption code="master.menu.authenticated.messageThread.create" action="/authenticated/message-thread/create"/>		
+			<acme:menu-suboption code="master.menu.authenticated.messageThread.list" action="/authenticated/message-thread/list"/>	
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator.panel1" access="hasRole('Administrator')">

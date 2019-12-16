@@ -235,6 +235,7 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
+        `creator_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -261,6 +262,14 @@
         `text` varchar(1024),
         `ticker` varchar(255),
         `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participation` (
+       `id` integer not null,
+        `version` integer not null,
+        `participant_id` integer not null,
+        `thread_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -447,10 +456,25 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        foreign key (`user_id`) 
        references `authenticated` (`id`);
 
+    alter table `message_thread` 
+       add constraint `FK3fa4h4tfet2kocvatib2ovhsa` 
+       foreign key (`creator_id`) 
+       references `authenticated` (`id`);
+
     alter table `non_commercial_banner` 
        add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
+    alter table `participation` 
+       add constraint `FKl3oifwo53p0xo35t6hlositwc` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participation` 
+       add constraint `FKgddyc36rp2p6av1d3w529nf6e` 
+       foreign key (`thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

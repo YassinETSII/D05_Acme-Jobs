@@ -63,7 +63,7 @@
 	</jstl:if>
 	
 	<jstl:if test="${command == 'show' && finalMode == true}">
-	<acme:form-submit code="employer.job.form.button.list-audit-records" action="/authenticated/audit-record/list?idJob=${id}" method="get" />	
+		<acme:form-submit code="employer.job.form.button.list-audit-records" action="/authenticated/audit-record/list?idJob=${id}" method="get" />	
 	</jstl:if>
 		
 	<acme:form-submit test="${command == 'create'}"

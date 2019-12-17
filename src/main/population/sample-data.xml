@@ -695,7 +695,7 @@
 	
 	<bean id="job1app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB1-WOR1"/>
-		<property name="moment" value="2018/12/11 23:59"/>
+		<property name="moment" value="2019/12/11 23:59"/>
 		<property name="status" value="accepted"/>
 		<property name="statement" value="Statement 1"/>
 		<property name="skills" value="Skills 1"/>
@@ -705,21 +705,9 @@
 		<property name="job" ref="job01"/>
 	</bean>
 	
-	<bean id="job2app1" class="acme.entities.applications.Application">
-		<property name="reference" value="EMP1-JOB2-WOR1"/>
-		<property name="moment" value="2016/12/11 23:59"/>
-		<property name="status" value="pending"/>
-		<property name="statement" value="Statement 2"/>
-		<property name="skills" value="Skills 2"/>
-		<property name="qualifications" value="Qualif 2"/>
-		<property name="justification"><null/></property>		
-		<property name="worker" ref="worker1Worker"/>
-		<property name="job" ref="job02"/>
-	</bean>
-	
-	<bean id="job2app2" class="acme.entities.applications.Application">
-		<property name="reference" value="EMP1-JOB2-WOR2"/>
-		<property name="moment" value="2017/10/11 23:59"/>
+	<bean id="job1app2" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP1-JOB1-WOR2"/>
+		<property name="moment" value="2019/12/14 23:59"/>
 		<property name="status" value="accepted"/>
 		<property name="statement" value="Statement 3"/>
 		<property name="skills" value="Skills 3"/>
@@ -731,7 +719,7 @@
 	
 	<bean id="job3app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB3-WOR1"/>
-		<property name="moment" value="2015/10/11 23:59"/>
+		<property name="moment" value="2019/12/15 23:59"/>
 		<property name="status" value="rejected"/>
 		<property name="statement" value="Statement 4"/>
 		<property name="skills" value="Skills 4"/>
@@ -743,13 +731,61 @@
 	
 	<bean id="job4app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP2-JOB4-WOR2"/>
-		<property name="moment" value="2017/03/11 23:59"/>
+		<property name="moment" value="2019/12/11 23:59"/>
 		<property name="status" value="pending"/>
 		<property name="statement" value="Statement 5"/>
 		<property name="skills" value="Skills 5"/>
 		<property name="qualifications" value="Qualif 5"/>
 		<property name="justification"><null/></property>		
 		<property name="worker" ref="worker2Worker"/>
+		<property name="job" ref="job04"/>
+		
+	</bean>
+		<bean id="job2app1" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP1-JOB2-WOR1"/>
+		<property name="moment" value="2019/12/14 23:59"/>
+		<property name="status" value="pending"/>
+		<property name="statement" value="Statement 2"/>
+		<property name="skills" value="Skills 2"/>
+		<property name="qualifications" value="Qualif 2"/>
+		<property name="justification"><null/></property>		
+		<property name="worker" ref="worker1Worker"/>
+		<property name="job" ref="job02"/>
+	</bean>
+	
+	<bean id="job2app3" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP1-JOB2-WOR2"/>
+		<property name="moment" value="2019/12/14 23:59"/>
+		<property name="status" value="pending"/>
+		<property name="statement" value="Statement 7"/>
+		<property name="skills" value="Skills 7"/>
+		<property name="qualifications" value="Qualif 7"/>
+		<property name="justification"><null/></property>		
+		<property name="worker" ref="worker2Worker"/>
+		<property name="job" ref="job03"/>
+	</bean>
+	
+	<bean id="job3app2" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP1-JOB3-WOR2"/>
+		<property name="moment" value="2019/12/16 23:59"/>
+		<property name="status" value="pending"/>
+		<property name="statement" value="Statement 6"/>
+		<property name="skills" value="Skills 6"/>
+		<property name="qualifications" value="Qualif 6"/>
+		<property name="justification"><null/></property>		
+		<property name="worker" ref="worker2Worker"/>
+		<property name="job" ref="job03"/>
+	</bean>
+	
+	<bean id="job4app2" class="acme.entities.applications.Application">
+		<property name="reference" value="EMP2-JOB4-WOR1"/>
+		<property name="moment" value="2019/12/15 23:59"/>
+		<property name="status" value="rejected"/>
+		<property name="statement" value="Statement 8"/>
+		<property name="skills" value="Skills 8"/>
+		<property name="qualifications" value="Qualif 8"/>
+		<property name="justification" value="justification sample 3" />						
+		<property name="worker" ref="worker1Worker"/>
 		<property name="job" ref="job04"/>
 	</bean>
 	
@@ -865,6 +901,24 @@
 	<bean id="messageThread01" class="acme.entities.messageThreads.MessageThread">
 		<property name="title" value="Title 1"/>
 		<property name="moment" value="2017/12/11 23:59"/>
+		<property name="creator" ref="employer1Authenticated"/>
+	</bean>
+	
+	<!-- Participations -->
+	
+	<bean id="thread01employer1participation" class="acme.entities.participations.Participation">
+		<property name="thread" ref="messageThread01"/>
+		<property name="participant" ref="employer1Authenticated"/>
+	</bean>
+	
+	<bean id="thread01consumer1participation" class="acme.entities.participations.Participation">
+		<property name="thread" ref="messageThread01"/>
+		<property name="participant" ref="consumer1Authenticated"/>
+	</bean>
+	
+	<bean id="thread01provider1participation" class="acme.entities.participations.Participation">
+		<property name="thread" ref="messageThread01"/>
+		<property name="participant" ref="provider1Authenticated"/>
 	</bean>
 	
 	<!-- Messages -->
@@ -1005,32 +1059,21 @@
 		<property name="userAccount" ref="sponsor3UserAccount" />
 	</bean>
 	
-	<!-- Banners -->
-
-	<bean id="commercialBanner01" class="acme.entities.banners.CommercialBanner">
-		<property name="picture" value="https://www.tumblr.com/commercialBannerSample01"/>
-		<property name="slogan" value="commercial banner slogan sample 1"/>
-		<property name="URL" value="https://www.tumblr.com"/>
-		<property name="holder" value="Anselmo Rocoso Quintero"/>
-		<property name="expirationMonth" value="11"/>
-		<property name="expirationYear" value="22"/>
-		<property name="creditCardNumber" value="4916164401239057"/>
-		<property name="brand" value="VISA"/>
-		<property name="CVV" value="2134"/>
-		<property name="sponsor" ref="sponsor1Sponsor" />
-	</bean>	
-	
-	<bean id="commercialBanner02" class="acme.entities.banners.CommercialBanner">
-		<property name="picture" value="https://www.tumblr.com/commercialBannerSample02"/>
-		<property name="slogan" value="commercial banner slogan sample 2"/>
-		<property name="URL" value="https://www.tumblr.com"/>
-		<property name="holder" value="Martina Juanes Pomodoro"/>
-		<property name="expirationMonth" value="09"/>
-		<property name="expirationYear" value="20"/>
-		<property name="creditCardNumber" value="4258549763626089"/>
-		<property name="brand" value="VISA"/>
-		<property name="CVV" value="114"/>
-		<property name="sponsor" ref="sponsor3Sponsor" />
+	<!-- Banners -->	
+	<bean id="commercialBanner01" class="acme.entities.banners.CommercialBanner">	
+		<property name="picture" value="https://www.tumblr.com/commercialBannerSample01"/>	
+		<property name="slogan" value="commercial banner slogan sample 1"/>	
+		<property name="URL" value="https://www.tumblr.com"/>	
+		<property name="creditCard" ref = "creditCard01"/>	
+		<property name="sponsor" ref="sponsor1Sponsor" />	
+	</bean>		
+		
+	<bean id="commercialBanner02" class="acme.entities.banners.CommercialBanner">	
+		<property name="picture" value="https://www.tumblr.com/commercialBannerSample02"/>	
+		<property name="slogan" value="commercial banner slogan sample 2"/>	
+		<property name="URL" value="https://www.tumblr.com"/>	
+		<property name="creditCard" ref = "creditCard02"/>	
+		<property name="sponsor" ref="sponsor3Sponsor" />	
 	</bean>	
 	
 	<bean id="nonCommercialBanner01" class="acme.entities.banners.NonCommercialBanner">

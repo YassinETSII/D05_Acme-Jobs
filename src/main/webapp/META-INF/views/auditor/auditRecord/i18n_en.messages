@@ -15,9 +15,11 @@ auditor.auditRecord.form.label.body = Body:
 auditor.auditRecord.form.label.finalMode = Published
 auditor.auditRecord.form.label.job = Job:
 
+auditor.auditRecord.form.button.create = Create audit record
+auditor.auditRecord.form.button.update = Update audit record
+auditor.auditRecord.form.button.delete = Delete audit record
 auditor.auditRecord.form.button.return = Return
 
 ########################################### Feature: auditor lists audit records.
 auditor.auditRecord.list.label.title = Title
 auditor.auditRecord.list.label.moment = Moment of creation
-

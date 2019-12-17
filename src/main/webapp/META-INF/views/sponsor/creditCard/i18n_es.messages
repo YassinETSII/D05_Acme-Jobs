@@ -1,0 +1,26 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+########################################### Feature: sponsor muestra una tarjeta de credito.
+sponsor.creditCard.form.label.holder = Titular:
+sponsor.creditCard.form.label.expirationMonth = Mes de expiración:
+sponsor.creditCard.form.label.expirationYear = Año de expiración:
+sponsor.creditCard.form.label.creditCardNumber = Número de tarjeta de crédito:
+sponsor.creditCard.form.label.brand = Marca:
+sponsor.creditCard.form.label.CVV = CVV:
+
+sponsor.creditCard.form.button.create = Crear tarjeta de crédito
+sponsor.creditCard.form.button.update = Actualizar tarjeta de crédito
+sponsor.creditCard.form.button.delete = Eliminar tarjeta de credito
+
+sponsor.CreditCard.error.expirationYear = El año debe ser igual o mayor que el año actual
+sponsor.CreditCard.error.expirationMonth = El mes debe ser igual o mayor que el mes actual
+
+sponsor.creditCard.form.button.return = Volver

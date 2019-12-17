@@ -1,9 +1,15 @@
 
 package acme.features.administrator.chart;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,8 +44,8 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "companySector", "companyNumber", "investorSector", "investorNumber", "finalMode", "ratioOfJobs", "ApplicationStatus", "ratioOfApplications");
-
+		request.unbind(entity, model, "companySector", "companyNumber", "investorSector", "investorNumber", "finalMode", "ratioOfJobs", "applicationStatus", "ratioOfApplications", "momentPendingApplications", "momentAcceptedApplications",
+			"momentRejectedApplications", "countPendingApplications", "countAcceptedApplications", "countRejectedApplications");
 	}
 
 	@Override
@@ -47,14 +53,27 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert request != null;
 		Chart result = new Chart();
 
+		Calendar calendar;
+		calendar = new GregorianCalendar();
+		calendar.add(Calendar.WEEK_OF_MONTH, -4);
+		Date fourWeeks = calendar.getTime();
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
 		List<Long> companyNumber = new LinkedList<>();
 		List<String> companySector = new LinkedList<>();
 		List<Long> investorNumber = new LinkedList<>();
 		List<String> investorSector = new LinkedList<>();
 		List<Double> ratioOfJobs = new LinkedList<>();
 		List<String> finalMode = new LinkedList<>();
-		List<String> ApplicationStatus = new LinkedList<>();
+		List<String> applicationStatus = new LinkedList<>();
 		List<Double> ratioOfApplications = new LinkedList<>();
+		List<Date> momentPendingApplications = new LinkedList<>();
+		List<Date> momentAcceptedApplications = new LinkedList<>();
+		List<Date> momentRejectedApplications = new LinkedList<>();
+		List<Long> countPendingApplications = new LinkedList<>();
+		List<Long> countAcceptedApplications = new LinkedList<>();
+		List<Long> countRejectedApplications = new LinkedList<>();
 		//--------------------------------------------------companies
 		Collection<Object[]> companies = this.repository.numCompaniesBySector();
 
@@ -90,11 +109,34 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		Collection<Object[]> applications = this.repository.ratioOfApplicationsGroupedByStatus();
 
 		applications.stream().forEach(a -> ratioOfApplications.add((Double) a[0]));
-		applications.stream().forEach(a -> ApplicationStatus.add((String) a[1]));
+		applications.stream().forEach(a -> applicationStatus.add((String) a[1]));
 
 		result.setRatioOfApplications(ratioOfApplications);
-		result.setApplicationStatus(ApplicationStatus);
+		result.setApplicationStatus(applicationStatus);
+		//--------------------------------------------------pending applications
+		Collection<Object[]> pending = this.repository.numPendingApplicationsPerDays(fourWeeks);
 
+		pending.stream().forEach(p -> countPendingApplications.add((Long) p[0]));
+		pending.stream().forEach(p -> momentPendingApplications.add((Date) p[1]));
+
+		result.setCountPendingApplications(countPendingApplications);
+		result.setMomentPendingApplications(momentPendingApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
+		//--------------------------------------------------accepted applications
+		Collection<Object[]> accepted = this.repository.numAcceptedApplicationsPerDays(fourWeeks);
+
+		accepted.stream().forEach(a -> countAcceptedApplications.add((Long) a[0]));
+		accepted.stream().forEach(a -> momentAcceptedApplications.add((Date) a[1]));
+
+		result.setCountAcceptedApplications(countAcceptedApplications);
+		result.setMomentAcceptedApplications(momentAcceptedApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
+		//--------------------------------------------------rejected applications
+		Collection<Object[]> rejected = this.repository.numRejectedApplicationsPerDays(fourWeeks);
+
+		rejected.stream().forEach(r -> countRejectedApplications.add((Long) r[0]));
+		rejected.stream().forEach(r -> momentRejectedApplications.add((Date) r[1]));
+
+		result.setCountRejectedApplications(countRejectedApplications);
+		result.setMomentRejectedApplications(momentRejectedApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
 		return result;
 	}
 

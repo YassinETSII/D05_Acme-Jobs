@@ -14,7 +14,12 @@ sponsor.nonCommercialBanner.form.label.slogan = Slogan:
 sponsor.nonCommercialBanner.form.label.url = URL:
 sponsor.nonCommercialBanner.form.label.jingle = Jingle:
 
+sponsor.nonCommercialBanner.form.button.create = Create non commercial banner
+sponsor.nonCommercialBanner.form.button.update = Update non commercial banner
+sponsor.nonCommercialBanner.form.button.delete = Delete non commercial banner
 sponsor.nonCommercialBanner.form.button.return = Return
+
+sponsor.nonCommercialBanner.error.spam = This piece of text contains spam
 
 ########################################### Feature: sponsor lists non commercial banners.
 sponsor.nonCommercialBanner.list.label.slogan = Slogan

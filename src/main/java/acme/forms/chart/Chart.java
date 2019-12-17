@@ -26,6 +26,14 @@ public class Chart implements Serializable {
 	List<String>				finalMode;
 	List<Double>				ratioOfJobs;
 
-	List<String>				ApplicationStatus;
+	List<String>				applicationStatus;
 	List<Double>				ratioOfApplications;
+
+	List<String>				momentPendingApplications;
+	List<String>				momentAcceptedApplications;
+	List<String>				momentRejectedApplications;
+	List<Long>					countPendingApplications;
+	List<Long>					countAcceptedApplications;
+	List<Long>					countRejectedApplications;
+
 }

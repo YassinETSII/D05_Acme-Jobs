@@ -12,7 +12,6 @@
 authenticated.auditRecord.form.label.title = Título:
 authenticated.auditRecord.form.label.moment = Momento de creación:
 authenticated.auditRecord.form.label.body = Cuerpo:
-authenticated.auditRecord.form.label.finalMode = Publicado
 authenticated.auditRecord.form.label.job = Trabajo:
 
 authenticated.auditRecord.form.button.return = Volver

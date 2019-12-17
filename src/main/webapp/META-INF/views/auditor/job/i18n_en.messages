@@ -20,8 +20,8 @@ auditor.job.form.label.deadline = Deadline:
 auditor.job.form.label.salary = Salary:
 auditor.job.form.label.moreInfo = moreInfo:
 auditor.job.form.label.description = Description:
-auditor.job.form.label.finalMode = Published
 
+auditor.job.form.button.write-record = Write an audit record
 auditor.job.form.button.list-duties = List duties
 auditor.job.form.button.list-audit-records = List audit records
 auditor.job.form.button.return = Return

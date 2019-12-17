@@ -17,9 +17,44 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.messageThread.form.label.title" path="title"/>
-	<acme:form-moment code="authenticated.messageThread.form.label.moment" path="moment"/>
-	<acme:form-textarea code="authenticated.messageThread.form.label.userNameList" path="userNameList"/>
-	<acme:form-submit code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?idMessageThread=${id}" method="get" />
+	<jstl:if test="${command != 'create'}">
+		<acme:form-moment 
+		code="authenticated.messageThread.form.label.moment" 
+		path="moment"
+		readonly="true"/>
+		<acme:form-moment 
+		code="authenticated.messageThread.form.label.creator" 
+		path="creator.identity.fullName"
+		readonly="true"/>
+		<acme:form-submit test="${postedMessage == true}" code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.postMessage" action="/authenticated/message/create?messageThreadId=${id}" method="get"/>
+	</jstl:if>
 	
+	<jstl:if test="${command !='create' && isCreator == true}">
+		<acme:form-submit code="authenticated.messageThread.form.button.list-participants" action="/authenticated/participation/list?messageThreadId=${id}" method="get"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.add-participant" action="/authenticated/participation/create?messageThreadId=${id}" method="get"/>
+	</jstl:if>
+		
+	<acme:form-submit test="${command == 'create'}"
+		code="authenticated.messageThread.form.button.create"
+		action="/authenticated/message-thread/create"/>	
+		
+	<acme:form-submit test="${command == 'show' && isCreator == true}"
+		code="authenticated.messageThread.form.button.update"
+		action="/authenticated/message-thread/update"/>	
+		
+	<acme:form-submit test="${command == 'show' && isCreator == true}"
+		code="authenticated.messageThread.form.button.delete"
+		action="/authenticated/message-thread/delete"/>
+		
+	<acme:form-submit test="${command == 'update'}"
+		code="authenticated.messageThread.form.button.update"
+		action="/authenticated/message-thread/update"/>
+		
+	<acme:form-submit test="${command == 'delete'}"
+		code="authenticated.messageThread.form.button.delete"
+		action="/authenticated/message-thread/delete"/>
+		
+		
 	<acme:form-return code="authenticated.messageThread.form.button.return"/>
 </acme:form>

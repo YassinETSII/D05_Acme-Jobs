@@ -2,8 +2,6 @@
 package acme.features.authenticated.messageThread;
 
 import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +30,17 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
+		assert request != null;
+
 		boolean result;
 		Principal principal;
-		List<Authenticated> listAuth = new LinkedList<>();
 
 		principal = request.getPrincipal();
 		int id = request.getModel().getInteger("id");
+		MessageThread mt = this.repository.findOneById(id);
+		Collection<Authenticated> parts = this.repository.findManyAuthenticatedByThreadId(id);
 
-		Collection<Message> mess = this.repository.findManyMessagesByMessageThreadId(id);
-		listAuth.addAll(mess.stream().map(m -> m.getUser()).collect(Collectors.toList()));
-
-		result = listAuth.stream().anyMatch(a -> a.getUserAccount().getId() == principal.getAccountId());
+		result = principal.getAccountId() == mt.getCreator().getUserAccount().getId() || parts.stream().anyMatch(a -> a.getUserAccount().getId() == principal.getAccountId());
 
 		return result;
 	}
@@ -53,16 +51,16 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment");
-
-		StringBuilder buffer;
-		Collection<Message> userNames = this.repository.findManyMessagesByMessageThreadId(entity.getId());
-		buffer = new StringBuilder();
-		for (Message userName : userNames) {
-			buffer.append("[" + userName.getUser().getIdentity().getFullName() + "]");
-			buffer.append(" ");
-		}
-		model.setAttribute("userNameList", buffer.toString());
+		request.unbind(entity, model, "title", "moment", "creator.identity.fullName");
+		boolean isCreator = entity.getCreator().getId() == request.getPrincipal().getActiveRoleId();
+		model.setAttribute("isCreator", isCreator);
+		boolean postedMessage;
+		Principal principal;
+		principal = request.getPrincipal();
+		Collection<Message> messages = this.repository.findManyMessagesByMessageThreadId(request.getModel().getInteger("id"));
+		Collection<Authenticated> auth = messages.stream().map(m -> m.getUser()).collect(Collectors.toList());
+		postedMessage = auth.stream().anyMatch(u -> u.getUserAccount().getId() == principal.getAccountId());
+		model.setAttribute("postedMessage", postedMessage);
 
 	}
 
@@ -75,7 +73,6 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneMessageThreadById(id);
-
 		return result;
 	}
 

@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "stars")
+	@Index(columnList = "stars"), @Index(columnList = "sector")
 })
 public class InvestorRecord extends DomainEntity {
 

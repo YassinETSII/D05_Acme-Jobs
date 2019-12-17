@@ -1,30 +1,27 @@
 
-package acme.features.administrator.commercialBanner;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+package acme.features.sponsor.commercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AdministratorCommercialBannerCreateService implements AbstractCreateService<Administrator, CommercialBanner> {
+public class SponsorCommercialBannerCreateService implements AbstractCreateService<Sponsor, CommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AdministratorCommercialBannerRepository repository;
+	SponsorCommercialBannerRepository repository;
 
 
-	// AbstractCreateService<Administrator, CommercialBanner> interface --------------
+	// AbstractCreateService<Sponsor, CommercialBanner> interface --------------
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
@@ -48,7 +45,11 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "URL", "holder", "expirationMonth", "expirationYear", "creditCardNumber", "brand", "CVV");
+		request.unbind(entity, model, "picture", "slogan", "URL", "creditCard.holder", "creditCard.expirationMonth", "creditCard.expirationYear", "creditCard.creditCardNumber", "creditCard.brand", "creditCard.CVV");
+		model.setAttribute("idSponsor", entity.getSponsor().getId());
+
+		boolean noCreditCard = entity.getSponsor().getCreditCard() == null;
+		model.setAttribute("noCreditCard", noCreditCard);
 	}
 
 	@Override
@@ -56,6 +57,10 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert request != null;
 		CommercialBanner result;
 		result = new CommercialBanner();
+		Principal principal = request.getPrincipal();
+		Sponsor sponsor = this.repository.findOneSponsorByUserAccountId(principal.getAccountId());
+		result.setCreditCard(sponsor.getCreditCard());
+		result.setSponsor(sponsor);
 		return result;
 	}
 
@@ -65,23 +70,6 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert errors != null;
 
-		Calendar c = new GregorianCalendar();
-		Date d = c.getTime();
-		Boolean activeMonth;
-		Boolean currentYear;
-
-		//Check if the entered year is equal or superior than the current year
-		if (!errors.hasErrors("expirationYear")) { //Check if expirationYear has no errors
-			currentYear = entity.getExpirationYear() >= d.getYear() - 100;
-			errors.state(request, currentYear, "expirationYear", "administrator.commercialBanner.error.expirationYear");
-		}
-		//Check if the entered month is equal or superior than the current month if it is in the current year
-		if (!errors.hasErrors("expirationMonth") && !errors.hasErrors("expirationYear")) { //Check if expirationMonth and expirationYear have no errors
-			if (entity.getExpirationYear() == d.getYear() - 100) {
-				activeMonth = entity.getExpirationMonth() >= d.getMonth() + 1;
-				errors.state(request, activeMonth, "expirationMonth", "administrator.commercialBanner.error.expirationMonth");
-			}
-		}
 	}
 
 	@Override

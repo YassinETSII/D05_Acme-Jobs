@@ -38,6 +38,7 @@ master.menu.authenticated.offer.list = List offers
 master.menu.authenticated.challenge.list = List challenges
 master.menu.authenticated.job.list = List jobs
 master.menu.authenticated.messageThread.list = List message threads
+master.menu.authenticated.messageThread.create = Create message thread
 
 # master.menu.anonymous #######################################################
 
@@ -70,9 +71,8 @@ master.menu.administrator.companyRecord.create = Create company record
 master.menu.administrator.investorRecord.list = List investor records
 master.menu.administrator.investorRecord.create = Create investor record
 master.menu.administrator.commercialBanner.list = List commercial banners
-master.menu.administrator.commercialBanner.create = Create commercial banner
 master.menu.administrator.nonCommercialBanner.list = List non commercial banners
-master.menu.administrator.nonCommercialBanner.create = Create non commercial banner
+master.menu.administrator.auditorRequest.list = List pending auditor requests
 master.menu.administrator.challenge.list = List challenges
 master.menu.administrator.challenge.create = Create challenge
 master.menu.administrator.dashboard.form = Display dashboard
@@ -101,7 +101,7 @@ master.menu.employer.application.listMine = List my applications
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
-master.menu.worker.job.list = List jobs
+master.menu.worker.job.list-not-applied = List jobs that I didn't apply
 master.menu.worker.application.list-mine = List my applications
 
 # master.menu.auditor ##########################################################
@@ -114,7 +114,11 @@ master.menu.auditor.job.list-not-mine = List jobs I didn't record an audit
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.commercialBanner.list-mine = List my commercial banners
+master.menu.sponsor.commercialBanner.create = Create commercial banner
 master.menu.sponsor.nonCommercialBanner.list-mine = List my non commercial banners
+master.menu.sponsor.nonCommercialBanner.create = Create non commercial banner
+master.menu.sponsor.creditCard.create = Create credit card
+master.menu.sponsor.creditCard.form = Show credit card
 
 # master.menu.user-account ####################################################
 
@@ -128,6 +132,10 @@ master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.employer = Employer data
 master.menu.user-account.become-worker = Become a worker
 master.menu.user-account.worker = Worker data
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-sponsor = Become a sponsor
+master.menu.user-account.sponsor = Sponsor data
 
 # master.footer ###############################################################
 

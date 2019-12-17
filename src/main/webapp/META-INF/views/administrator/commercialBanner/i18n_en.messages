@@ -18,9 +18,7 @@ administrator.commercialBanner.form.label.expirationYear = Expiration year:
 administrator.commercialBanner.form.label.creditCardNumber = Credit card number:
 administrator.commercialBanner.form.label.brand = Brand:
 administrator.commercialBanner.form.label.CVV = CVV:
-administrator.commercialBanner.form.button.create = Create commercial banner
-administrator.commercialBanner.form.button.update = Update commercial banner
-administrator.commercialBanner.form.button.delete = Delete commercial banner
+
 administrator.commercialBanner.form.button.return = Return
 
 administrator.commercialBanner.error.expirationYear = The year must be equal or posterior than current year

@@ -28,9 +28,9 @@
         `version` integer not null,
         `justification` varchar(1024),
         `moment` datetime(6),
-        `qualifications` varchar(255),
+        `qualifications` varchar(1024),
         `reference` varchar(255),
-        `skills` varchar(255),
+        `skills` varchar(1024),
         `statement` varchar(1024),
         `status` varchar(255),
         `job_id` integer not null,
@@ -56,6 +56,16 @@
         `user_account_id` integer,
         `firm` varchar(255),
         `responsibility_statement` varchar(1024),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditor_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `firm` varchar(255),
+        `responsibility_statement` varchar(1024),
+        `status` varchar(255),
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -99,12 +109,7 @@
         `url` varchar(255),
         `picture` varchar(255),
         `slogan` varchar(255),
-        `cvv` varchar(255),
-        `brand` varchar(255),
-        `credit_card_number` varchar(255),
-        `expiration_month` integer,
-        `expiration_year` integer,
-        `holder` varchar(255),
+        `credit_card_id` integer not null,
         `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -225,6 +230,7 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
+        `creator_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -251,6 +257,14 @@
         `text` varchar(1024),
         `ticker` varchar(255),
         `title` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `participation` (
+       `id` integer not null,
+        `version` integer not null,
+        `participant_id` integer not null,
+        `thread_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -331,6 +345,7 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
+create index IDXavmpyh8rpetaj6xntvliy5nm1 on `application` (`reference` asc, `status` asc, `moment` desc);
 
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
@@ -391,10 +406,20 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `auditor_request` 
+       add constraint `FK49gx0x5hlvlehwyvgesb15kw3` 
+       foreign key (`user_id`) 
+       references `authenticated` (`id`);
+
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `commercial_banner` 
+       add constraint `FKfp0yot74q1m8ofbclq3nlfidw` 
+       foreign key (`credit_card_id`) 
+       references `credit_card` (`id`);
 
     alter table `commercial_banner` 
        add constraint `FKd0k52g7lcacefcp62kb4p9aor` 
@@ -431,10 +456,25 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        foreign key (`user_id`) 
        references `authenticated` (`id`);
 
+    alter table `message_thread` 
+       add constraint `FK3fa4h4tfet2kocvatib2ovhsa` 
+       foreign key (`creator_id`) 
+       references `authenticated` (`id`);
+
     alter table `non_commercial_banner` 
        add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
+    alter table `participation` 
+       add constraint `FKl3oifwo53p0xo35t6hlositwc` 
+       foreign key (`participant_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participation` 
+       add constraint `FKgddyc36rp2p6av1d3w529nf6e` 
+       foreign key (`thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

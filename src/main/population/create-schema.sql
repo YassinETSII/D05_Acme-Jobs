@@ -33,6 +33,7 @@
         `skills` varchar(1024),
         `statement` varchar(1024),
         `status` varchar(255),
+        `update_moment` datetime(6),
         `job_id` integer not null,
         `worker_id` integer not null,
         primary key (`id`)

@@ -696,6 +696,7 @@
 	<bean id="job1app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB1-WOR1"/>
 		<property name="moment" value="2019/12/11 23:59"/>
+		<property name="updateMoment" value="2019/12/13 23:59"/>
 		<property name="status" value="accepted"/>
 		<property name="statement" value="Statement 1"/>
 		<property name="skills" value="Skills 1"/>
@@ -708,6 +709,7 @@
 	<bean id="job1app2" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB1-WOR2"/>
 		<property name="moment" value="2019/12/14 23:59"/>
+		<property name="updateMoment" value="2019/12/15 23:59"/>
 		<property name="status" value="accepted"/>
 		<property name="statement" value="Statement 3"/>
 		<property name="skills" value="Skills 3"/>
@@ -720,6 +722,7 @@
 	<bean id="job3app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB3-WOR1"/>
 		<property name="moment" value="2019/12/15 23:59"/>
+		<property name="updateMoment" value="2019/12/16 23:59"/>
 		<property name="status" value="rejected"/>
 		<property name="statement" value="Statement 4"/>
 		<property name="skills" value="Skills 4"/>
@@ -732,6 +735,7 @@
 	<bean id="job4app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP2-JOB4-WOR2"/>
 		<property name="moment" value="2019/04/11 23:59"/>
+		<property name="updateMoment" value="2019/04/11 23:59"/>
 		<property name="status" value="pending"/>
 		<property name="statement" value="Statement 5"/>
 		<property name="skills" value="Skills 5"/>
@@ -744,6 +748,7 @@
 		<bean id="job2app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB2-WOR1"/>
 		<property name="moment" value="2019/12/14 23:59"/>
+		<property name="updateMoment" value="2019/12/14 23:59"/>
 		<property name="status" value="pending"/>
 		<property name="statement" value="Statement 2"/>
 		<property name="skills" value="Skills 2"/>
@@ -756,6 +761,7 @@
 	<bean id="job2app3" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB2-WOR2"/>
 		<property name="moment" value="2019/12/14 23:59"/>
+		<property name="updateMoment" value="2019/12/14 23:59"/>		
 		<property name="status" value="pending"/>
 		<property name="statement" value="Statement 7"/>
 		<property name="skills" value="Skills 7"/>
@@ -768,6 +774,7 @@
 	<bean id="job3app2" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP1-JOB3-WOR2"/>
 		<property name="moment" value="2019/12/16 23:59"/>
+		<property name="updateMoment" value="2019/12/16 23:59"/>		
 		<property name="status" value="pending"/>
 		<property name="statement" value="Statement 6"/>
 		<property name="skills" value="Skills 6"/>
@@ -780,6 +787,7 @@
 	<bean id="job4app2" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP2-JOB4-WOR1"/>
 		<property name="moment" value="2019/12/15 23:59"/>
+		<property name="updateMoment" value="2019/12/16 23:59"/>		
 		<property name="status" value="rejected"/>
 		<property name="statement" value="Statement 8"/>
 		<property name="skills" value="Skills 8"/>

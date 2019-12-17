@@ -1,6 +1,8 @@
 
 package acme.features.employer.application;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,7 +78,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "worker", "job");
+		request.bind(entity, errors, "worker", "job", "updateMoment");
 	}
 
 	@Override
@@ -95,6 +97,12 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 	public void update(final Request<Application> request, final Application entity) {
 		assert request != null;
 		assert entity != null;
+
+		if (entity.getStatus() != "pending") {
+			Date moment;
+			moment = new Date(System.currentTimeMillis() - 1);
+			entity.setUpdateMoment(moment);
+		}
 
 		this.repository.save(entity);
 	}

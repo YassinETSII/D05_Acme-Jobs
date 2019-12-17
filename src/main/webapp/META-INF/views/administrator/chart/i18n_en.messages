@@ -14,4 +14,5 @@ administrator.chart.form.title.company = Total number of companies grouped by se
 administrator.chart.form.title.investor = Total number of investors grouped by sector
 administrator.chart.form.title.ratioJobs = Ratio of jobs grouped by status
 administrator.chart.form.title.ratioApplications = Ratio of applications grouped by status
+administrator.chart.form.title.ApplicationTimeSerie = Time series of applications
 administrator.chart.form.button.return = Return

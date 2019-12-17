@@ -16,9 +16,11 @@ authenticated.messageThread.form.label.userNameList = Users involved:
 authenticated.messageThread.form.button.list-participants = List participants
 authenticated.messageThread.form.button.add-participant = Add participant
 authenticated.messageThread.form.button.list-messages = List messages
+authenticated.messageThread.form.button.postMessage = Post message
 
 authenticated.messageThread.form.button.create = Create Message thread
 authenticated.messageThread.form.button.update = Update Message thread
+authenticated.messageThread.form.button.delete = Delete Message thread
 authenticated.messageThread.form.button.return = Return
 
 ########################################### Feature: authenticated lists message threads.

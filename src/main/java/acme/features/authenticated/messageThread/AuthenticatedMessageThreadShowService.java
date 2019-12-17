@@ -30,6 +30,8 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
+		assert request != null;
+
 		boolean result;
 		Principal principal;
 

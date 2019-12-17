@@ -19,6 +19,8 @@ sponsor.nonCommercialBanner.form.button.update = Update non commercial banner
 sponsor.nonCommercialBanner.form.button.delete = Delete non commercial banner
 sponsor.nonCommercialBanner.form.button.return = Return
 
+sponsor.nonCommercialBanner.error.spam = This piece of text contains spam
+
 ########################################### Feature: sponsor lists non commercial banners.
 sponsor.nonCommercialBanner.list.label.slogan = Slogan
 sponsor.nonCommercialBanner.list.label.url = URL

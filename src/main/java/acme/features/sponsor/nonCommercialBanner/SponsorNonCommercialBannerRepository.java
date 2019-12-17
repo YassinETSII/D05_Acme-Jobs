@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.banners.NonCommercialBanner;
+import acme.entities.customisation.Customisation;
 import acme.entities.roles.Sponsor;
 import acme.framework.repositories.AbstractRepository;
 
@@ -21,4 +22,7 @@ public interface SponsorNonCommercialBannerRepository extends AbstractRepository
 
 	@Query("select s from Sponsor s where s.userAccount.id = ?1")
 	Sponsor findOneSponsorByUserAccountId(int id);
+
+	@Query("select c from Customisation c")
+	Customisation findConfiguration();
 }

@@ -17,9 +17,9 @@ auditor.auditRecord.form.label.job = Trabajo:
 
 auditor.auditRecord.form.button.create = Crear registro de auditoría
 auditor.auditRecord.form.button.update = Actualizar registro de auditoría
+auditor.auditRecord.form.button.delete = Borra registro de auditoría
 auditor.auditRecord.form.button.return = Volver
 
 ########################################### Feature: auditor lista registros de auditoría.
 auditor.auditRecord.list.label.title = Título
 auditor.auditRecord.list.label.moment = Momento de creación
-

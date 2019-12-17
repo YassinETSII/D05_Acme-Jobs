@@ -27,16 +27,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		boolean result;
-		int sponsorId;
-		Sponsor sponsor;
-		Principal principal;
-
-		principal = request.getPrincipal();
-		sponsorId = principal.getAccountId();
-		sponsor = this.repository.findOneSponsorByUserAccountId(sponsorId);
-		result = sponsor.getCreditCard() != null;
-		return result;
+		return true;
 	}
 
 	@Override
@@ -55,6 +46,10 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert model != null;
 
 		request.unbind(entity, model, "picture", "slogan", "URL", "creditCard.holder", "creditCard.expirationMonth", "creditCard.expirationYear", "creditCard.creditCardNumber", "creditCard.brand", "creditCard.CVV");
+		model.setAttribute("idSponsor", entity.getSponsor().getId());
+
+		boolean noCreditCard = entity.getSponsor().getCreditCard() == null;
+		model.setAttribute("noCreditCard", noCreditCard);
 	}
 
 	@Override

@@ -25,6 +25,9 @@ sponsor.commercialBanner.form.button.delete = Borrar banner comercial
 
 sponsor.commercialBanner.form.button.return = Volver
 
+sponsor.commercialBanner.creditCardText = Debes tener una tarjeta de crédito para crear un banner comercial
+sponsor.commercialBanner.form.button.add-creditCard = Añadir tarjeta de crédito
+
 ########################################### Feature: sponsor lista banners comerciales.
 sponsor.commercialBanner.list.label.slogan = Eslogan
 sponsor.commercialBanner.list.label.url = URL

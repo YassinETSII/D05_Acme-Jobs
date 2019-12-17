@@ -114,7 +114,9 @@ master.menu.auditor.job.list-not-mine = Listar trabajos que no he auditado
 
 master.menu.sponsor = Sponsor
 master.menu.sponsor.commercialBanner.list-mine = Listar mis banners comerciales
+master.menu.sponsor.commercialBanner.create = Crear banner comercial
 master.menu.sponsor.nonCommercialBanner.list-mine = Listar mis banners no comerciales
+master.menu.sponsor.nonCommercialBanner.create = Crear banner no comercial
 master.menu.sponsor.creditCard.create = Crear tarjeta de credito
 master.menu.sponsor.creditCard.form = Mostrar tarjeta de credito
 

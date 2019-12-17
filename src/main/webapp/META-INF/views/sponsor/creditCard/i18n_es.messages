@@ -11,13 +11,13 @@
 ########################################### Feature: sponsor muestra una tarjeta de credito.
 sponsor.creditCard.form.label.holder = Titular:
 sponsor.creditCard.form.label.expirationMonth = Mes de expiración:
-sponsor.creditCard.form.label.expirationYear = Anyo de expiración:
-sponsor.creditCard.form.label.creditCardNumber = Numero de tarjeta de credito:
+sponsor.creditCard.form.label.expirationYear = Año de expiración:
+sponsor.creditCard.form.label.creditCardNumber = Número de tarjeta de crédito:
 sponsor.creditCard.form.label.brand = Marca:
 sponsor.creditCard.form.label.CVV = CVV:
 
-sponsor.creditCard.form.button.create = Crear tarjeta de credito
-sponsor.creditCard.form.button.update = Actualizar tarjeta de credito
+sponsor.creditCard.form.button.create = Crear tarjeta de crédito
+sponsor.creditCard.form.button.update = Actualizar tarjeta de crédito
 sponsor.creditCard.form.button.delete = Eliminar tarjeta de credito
 
 sponsor.CreditCard.error.expirationYear = El año debe ser igual o mayor que el año actual

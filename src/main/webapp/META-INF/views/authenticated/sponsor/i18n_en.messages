@@ -17,9 +17,4 @@ authenticated.sponsor.form.button.update = Update sponsor data
 authenticated.sponsor.form.button.add-creditCard = Create credit card
 authenticated.sponsor.form.button.creditCard = Show credit card
 
-authenticated.sponsor.form.button.create-commercialBanner = Create commercial banner
-authenticated.sponsor.form.button.list-commercialBanner = List commercial banners
-authenticated.sponsor.form.button.create-nonCommercialBanner = Create non commercial banner
-authenticated.sponsor.form.button.list-nonCommercialBanner = List non commercial banners
-
 authenticated.sponsor.form.button.return = Return

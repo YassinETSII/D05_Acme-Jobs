@@ -27,10 +27,8 @@
 	
 	<jstl:if test="${command == 'update' && noCreditCard==false}">
 		<acme:form-submit code="authenticated.sponsor.form.button.creditCard" action="/sponsor/credit-card/show?id=${idCreditCard}&idSponsor=${id}" method="get" />
-		<acme:form-submit code="authenticated.sponsor.form.button.create-commercialBanner" action="/sponsor/commercial-banner/create" method="get" />
 	</jstl:if>		
 	
-	<acme:form-submit code="authenticated.sponsor.form.button.create-nonCommercialBanner" action="/sponsor/non-commercial-banner/create" method="get" />
 	
 	<acme:form-return code="authenticated.sponsor.form.button.return"/>
 </acme:form>

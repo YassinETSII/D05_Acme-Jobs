@@ -1,8 +1,6 @@
 
 package acme.features.authenticated.messageThread;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +53,7 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment");
+		request.bind(entity, errors);
 
 	}
 
@@ -83,10 +81,6 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert request != null;
 		assert entity != null;
 
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
 		this.repository.save(entity);
 	}
 

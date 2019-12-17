@@ -346,15 +346,21 @@
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
 create index IDXavmpyh8rpetaj6xntvliy5nm1 on `application` (`reference` asc, `status` asc, `moment` desc);
+create index IDXdwumdwpjcwdk1mef9ua69yc2p on `application` (`reference`);
+create index IDX5wwxv107kvi5si12nh4226lnx on `application` (`status`, `moment`);
 
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);
 create index IDX9mf3mtdy6wve4sjuqrlejalq6 on `audit_record` (`final_mode`);
+create index IDX7u6rn1f09a74ihkev0ltgqy1j on `auditor_request` (`status`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDX9pkce3d1y6w47wadap5s5xptc on `company_record` (`stars`);
+create index IDX2psiob2l625wbcjcq6rac7jxd on `company_record` (`sector`);
 create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
+create index IDX29vxwf0tu7wf2iwmss2d07hql on `investor_record` (`sector`);
 create index IDXrr7tnj8h1bfv46pnsq6lwvxqd on `job` (`deadline`, `final_mode`);
 create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
+create index IDX8ix743uifflnrs9bupbn6y0h4 on `job` (`reference`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);

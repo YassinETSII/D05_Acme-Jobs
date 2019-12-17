@@ -731,7 +731,7 @@
 	
 	<bean id="job4app1" class="acme.entities.applications.Application">
 		<property name="reference" value="EMP2-JOB4-WOR2"/>
-		<property name="moment" value="2019/12/11 23:59"/>
+		<property name="moment" value="2019/04/11 23:59"/>
 		<property name="status" value="pending"/>
 		<property name="statement" value="Statement 5"/>
 		<property name="skills" value="Skills 5"/>

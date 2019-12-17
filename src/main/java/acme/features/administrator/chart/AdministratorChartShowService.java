@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,6 +75,10 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		List<Long> countPendingApplications = new LinkedList<>();
 		List<Long> countAcceptedApplications = new LinkedList<>();
 		List<Long> countRejectedApplications = new LinkedList<>();
+		List<Long> cumulativePending = new LinkedList<>();
+		List<Long> cumulativeAccepted = new LinkedList<>();
+		List<Long> cumulativeRejected = new LinkedList<>();
+
 		//--------------------------------------------------companies
 		Collection<Object[]> companies = this.repository.numCompaniesBySector();
 
@@ -119,15 +124,20 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		pending.stream().forEach(p -> countPendingApplications.add((Long) p[0]));
 		pending.stream().forEach(p -> momentPendingApplications.add((Date) p[1]));
 
-		result.setCountPendingApplications(countPendingApplications);
+		cumulativePending = LongStream.range(0, countPendingApplications.size()).map(i -> LongStream.rangeClosed(0, i).map(x -> countPendingApplications.get((int) x)).sum()).boxed().collect(Collectors.toList());
+
+		result.setCountPendingApplications(cumulativePending);
 		result.setMomentPendingApplications(momentPendingApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
+
 		//--------------------------------------------------accepted applications
 		Collection<Object[]> accepted = this.repository.numAcceptedApplicationsPerDays(fourWeeks);
 
 		accepted.stream().forEach(a -> countAcceptedApplications.add((Long) a[0]));
 		accepted.stream().forEach(a -> momentAcceptedApplications.add((Date) a[1]));
 
-		result.setCountAcceptedApplications(countAcceptedApplications);
+		cumulativeAccepted = LongStream.range(0, countAcceptedApplications.size()).map(i -> LongStream.rangeClosed(0, i).map(x -> countAcceptedApplications.get((int) x)).sum()).boxed().collect(Collectors.toList());
+
+		result.setCountAcceptedApplications(cumulativeAccepted);
 		result.setMomentAcceptedApplications(momentAcceptedApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
 		//--------------------------------------------------rejected applications
 		Collection<Object[]> rejected = this.repository.numRejectedApplicationsPerDays(fourWeeks);
@@ -135,7 +145,9 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		rejected.stream().forEach(r -> countRejectedApplications.add((Long) r[0]));
 		rejected.stream().forEach(r -> momentRejectedApplications.add((Date) r[1]));
 
-		result.setCountRejectedApplications(countRejectedApplications);
+		cumulativeRejected = LongStream.range(0, countRejectedApplications.size()).map(i -> LongStream.rangeClosed(0, i).map(x -> countRejectedApplications.get((int) x)).sum()).boxed().collect(Collectors.toList());
+
+		result.setCountRejectedApplications(cumulativeRejected);
 		result.setMomentRejectedApplications(momentRejectedApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
 		return result;
 	}

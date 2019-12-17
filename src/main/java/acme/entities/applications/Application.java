@@ -47,6 +47,7 @@ public class Application extends DomainEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				moment;
 
+	//used only in time series application chart
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				updateMoment;

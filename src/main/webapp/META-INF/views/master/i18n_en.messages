@@ -101,6 +101,7 @@ master.menu.employer.application.listMine = List my applications
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
+master.menu.worker.job.list-applied = List jobs that I applied
 master.menu.worker.job.list-not-applied = List jobs that I didn't apply
 master.menu.worker.application.list-mine = List my applications
 

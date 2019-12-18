@@ -22,6 +22,8 @@ public class WorkerJobController extends AbstractController<Worker, Job> {
 	@Autowired
 	private WorkerJobListNotAppliedService	listNotAppliedService;
 	@Autowired
+	private WorkerJobListAppliedService		listAppliedService;
+	@Autowired
 	private WorkerJobShowService			showService;
 
 
@@ -30,6 +32,7 @@ public class WorkerJobController extends AbstractController<Worker, Job> {
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_NOT_APPLIED, BasicCommand.LIST, this.listNotAppliedService);
+		super.addCustomCommand(CustomCommand.LIST_APPLIED, BasicCommand.LIST, this.listAppliedService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

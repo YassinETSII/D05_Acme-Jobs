@@ -26,7 +26,7 @@
 		code="authenticated.messageThread.form.label.creator" 
 		path="creator.identity.fullName"
 		readonly="true"/>
-		<acme:form-submit test="${postedMessage == true}" code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
+		<acme:form-submit code="authenticated.messageThread.form.button.list-messages" action="/authenticated/message/list?messageThreadId=${id}" method="get"/>
 		<acme:form-submit code="authenticated.messageThread.form.button.postMessage" action="/authenticated/message/create?messageThreadId=${id}" method="get"/>
 	</jstl:if>
 	

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.MessageThread;
 import acme.entities.messages.Message;
-import acme.entities.participations.Participation;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -39,9 +38,9 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 
 		int id = request.getModel().getInteger("messageThreadId");
 		principal = request.getPrincipal();
-		Collection<Participation> auth = this.repository.findManyParticipationByThreadId(id);
+		Collection<Authenticated> auth = this.repository.findManyUsersByMessageThreadId(id);
 
-		result = auth.stream().anyMatch(p -> p.getParticipant().getUserAccount().getId() == principal.getAccountId());
+		result = auth.stream().anyMatch(p -> p.getUserAccount().getId() == principal.getAccountId());
 
 		return result;
 	}

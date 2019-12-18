@@ -33,10 +33,12 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 		Principal principal;
 
 		int id = request.getModel().getInteger("id");
+		Message mess = this.repository.findOneMessageById(id);
+		int idThread = mess.getMessageThread().getId();
 		principal = request.getPrincipal();
-		Collection<Message> auth = this.repository.findManyMessagesByMessageThreadIdAndMessageId(id);
+		Collection<Authenticated> auth = this.repository.findManyUsersByMessageThreadId(idThread);
 
-		result = auth.stream().anyMatch(m -> m.getUser().getUserAccount().getId() == principal.getAccountId());
+		result = auth.stream().anyMatch(m -> m.getUserAccount().getId() == principal.getAccountId());
 
 		return result;
 	}

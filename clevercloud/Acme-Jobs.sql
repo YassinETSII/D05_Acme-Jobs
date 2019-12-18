@@ -107,17 +107,23 @@ DROP TABLE IF EXISTS `application`;
 CREATE TABLE `application` (
   `id` int(11) NOT NULL,
   `version` int(11) NOT NULL,
+  `justification` varchar(1024) DEFAULT NULL,
   `moment` datetime(6) DEFAULT NULL,
-  `qualifications` varchar(255) DEFAULT NULL,
+  `qualifications` varchar(1024) DEFAULT NULL,
   `reference` varchar(255) DEFAULT NULL,
-  `skills` varchar(255) DEFAULT NULL,
+  `skills` varchar(1024) DEFAULT NULL,
   `statement` varchar(1024) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
+  `update_moment` datetime(6) DEFAULT NULL,
   `job_id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_ct7r18vvxl5g4c4k7aefpa4do` (`reference`),
   KEY `IDX2q2747fhp099wkn3j2yt05fhs` (`status`),
+  KEY `IDXavmpyh8rpetaj6xntvliy5nm1` (`reference`,`status`,`moment` DESC),
+  KEY `IDXdwumdwpjcwdk1mef9ua69yc2p` (`reference`),
+  KEY `IDX5wwxv107kvi5si12nh4226lnx` (`status`,`moment`),
+  KEY `IDXmkqdesfsvt4p9ctfgcei9yjcy` (`status`,`update_moment`),
   KEY `FKoa6p4s2oyy7tf80xwc4r04vh6` (`job_id`),
   KEY `FKmbjdoxi3o93agxosoate4sxbt` (`worker_id`),
   CONSTRAINT `FKmbjdoxi3o93agxosoate4sxbt` FOREIGN KEY (`worker_id`) REFERENCES `worker` (`id`),
@@ -194,6 +200,36 @@ CREATE TABLE `auditor` (
 LOCK TABLES `auditor` WRITE;
 /*!40000 ALTER TABLE `auditor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `auditor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auditor_request`
+--
+
+DROP TABLE IF EXISTS `auditor_request`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auditor_request` (
+  `id` int(11) NOT NULL,
+  `version` int(11) NOT NULL,
+  `firm` varchar(255) DEFAULT NULL,
+  `responsibility_statement` varchar(1024) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX7u6rn1f09a74ihkev0ltgqy1j` (`status`),
+  KEY `FK49gx0x5hlvlehwyvgesb15kw3` (`user_id`),
+  CONSTRAINT `FK49gx0x5hlvlehwyvgesb15kw3` FOREIGN KEY (`user_id`) REFERENCES `authenticated` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auditor_request`
+--
+
+LOCK TABLES `auditor_request` WRITE;
+/*!40000 ALTER TABLE `auditor_request` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auditor_request` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -298,16 +334,13 @@ CREATE TABLE `commercial_banner` (
   `url` varchar(255) DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `slogan` varchar(255) DEFAULT NULL,
-  `cvv` varchar(255) DEFAULT NULL,
-  `brand` varchar(255) DEFAULT NULL,
-  `credit_card_number` varchar(255) DEFAULT NULL,
-  `expiration_month` int(11) DEFAULT NULL,
-  `expiration_year` int(11) DEFAULT NULL,
-  `holder` varchar(255) DEFAULT NULL,
+  `credit_card_id` int(11) NOT NULL,
   `sponsor_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `FKfp0yot74q1m8ofbclq3nlfidw` (`credit_card_id`),
   KEY `FKd0k52g7lcacefcp62kb4p9aor` (`sponsor_id`),
-  CONSTRAINT `FKd0k52g7lcacefcp62kb4p9aor` FOREIGN KEY (`sponsor_id`) REFERENCES `sponsor` (`id`)
+  CONSTRAINT `FKd0k52g7lcacefcp62kb4p9aor` FOREIGN KEY (`sponsor_id`) REFERENCES `sponsor` (`id`),
+  CONSTRAINT `FKfp0yot74q1m8ofbclq3nlfidw` FOREIGN KEY (`credit_card_id`) REFERENCES `credit_card` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -340,7 +373,8 @@ CREATE TABLE `company_record` (
   `stars` int(11) DEFAULT NULL,
   `web` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX9pkce3d1y6w47wadap5s5xptc` (`stars`)
+  KEY `IDX9pkce3d1y6w47wadap5s5xptc` (`stars`),
+  KEY `IDX2psiob2l625wbcjcq6rac7jxd` (`sector`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -530,7 +564,8 @@ CREATE TABLE `investor_record` (
   `stars` int(11) DEFAULT NULL,
   `statement` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDXk2t3uthe649ao1jllcuks0gv4` (`stars`)
+  KEY `IDXk2t3uthe649ao1jllcuks0gv4` (`stars`),
+  KEY `IDX29vxwf0tu7wf2iwmss2d07hql` (`sector`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -566,6 +601,7 @@ CREATE TABLE `job` (
   UNIQUE KEY `UK_7jmfdvs0b0jx7i33qxgv22h7b` (`reference`),
   KEY `IDXrr7tnj8h1bfv46pnsq6lwvxqd` (`deadline`,`final_mode`),
   KEY `IDXt84ibbldao4ngscmvo7ja0es` (`final_mode`),
+  KEY `IDX8ix743uifflnrs9bupbn6y0h4` (`reference`),
   KEY `FK3rxjf8uh6fh2u990pe8i2at0e` (`employer_id`),
   CONSTRAINT `FK3rxjf8uh6fh2u990pe8i2at0e` FOREIGN KEY (`employer_id`) REFERENCES `employer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -654,7 +690,10 @@ CREATE TABLE `message_thread` (
   `version` int(11) NOT NULL,
   `moment` datetime(6) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `creator_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK3fa4h4tfet2kocvatib2ovhsa` (`creator_id`),
+  CONSTRAINT `FK3fa4h4tfet2kocvatib2ovhsa` FOREIGN KEY (`creator_id`) REFERENCES `authenticated` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -729,6 +768,35 @@ CREATE TABLE `offer` (
 LOCK TABLES `offer` WRITE;
 /*!40000 ALTER TABLE `offer` DISABLE KEYS */;
 /*!40000 ALTER TABLE `offer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `participation`
+--
+
+DROP TABLE IF EXISTS `participation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `participation` (
+  `id` int(11) NOT NULL,
+  `version` int(11) NOT NULL,
+  `participant_id` int(11) NOT NULL,
+  `thread_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKl3oifwo53p0xo35t6hlositwc` (`participant_id`),
+  KEY `FKgddyc36rp2p6av1d3w529nf6e` (`thread_id`),
+  CONSTRAINT `FKgddyc36rp2p6av1d3w529nf6e` FOREIGN KEY (`thread_id`) REFERENCES `message_thread` (`id`),
+  CONSTRAINT `FKl3oifwo53p0xo35t6hlositwc` FOREIGN KEY (`participant_id`) REFERENCES `authenticated` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `participation`
+--
+
+LOCK TABLES `participation` WRITE;
+/*!40000 ALTER TABLE `participation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `participation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -900,7 +968,7 @@ CREATE TABLE `user_account` (
 
 LOCK TABLES `user_account` WRITE;
 /*!40000 ALTER TABLE `user_account` DISABLE KEYS */;
-INSERT INTO `user_account` VALUES (1,0,_binary '\0','john.doe@acme.com','John','Doe','$2a$05$9xVmCfsdus29IRt5valBPOQ27NDpji/2WzHbdTRtYfuDXHw/6Nlja','anonymous'),(3,0,_binary '','administrator@acme.com','Administrator','Acme.com','$2a$05$8nYuuwh5o8DEZ6FKYWA27OB9ekK3yo3QY2Vuk6EXy5wDiK7EBBh.C','administrator');
+INSERT INTO `user_account` VALUES (1,0,_binary '\0','john.doe@acme.com','John','Doe','$2a$05$nrqfoXNpPgmY9NWMu/IBGul0uNZ2S2ibdjRPOi3wCGzzazmi/bFcG','anonymous'),(3,0,_binary '','administrator@acme.com','Administrator','Acme.com','$2a$05$qv3lteJdmtKxmt49uHgIN.1iwvE2lHH9Od.GFrKYYuJdZTSY.d9PO','administrator');
 /*!40000 ALTER TABLE `user_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -941,4 +1009,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-04 17:26:29
+-- Dump completed on 2019-12-18 18:16:38

@@ -349,6 +349,7 @@ create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
 create index IDXavmpyh8rpetaj6xntvliy5nm1 on `application` (`reference` asc, `status` asc, `moment` desc);
 create index IDXdwumdwpjcwdk1mef9ua69yc2p on `application` (`reference`);
 create index IDX5wwxv107kvi5si12nh4226lnx on `application` (`status`, `moment`);
+create index IDXmkqdesfsvt4p9ctfgcei9yjcy on `application` (`status`, `update_moment`);
 
     alter table `application` 
        add constraint UK_ct7r18vvxl5g4c4k7aefpa4do unique (`reference`);

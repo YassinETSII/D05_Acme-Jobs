@@ -25,6 +25,8 @@ sponsor.commercialBanner.form.button.delete = Delete commercial banner
 
 sponsor.commercialBanner.form.button.return = Return
 
+sponsor.commercialBanner.error.spam = This piece of text contains spam
+
 sponsor.commercialBanner.creditCardText = You must have a credit card in order to create a commercial banner
 sponsor.commercialBanner.form.button.add-creditCard = Add credit card
 

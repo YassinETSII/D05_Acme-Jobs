@@ -11,6 +11,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.CheckSpamWords;
 
 @Service
 public class SponsorCommercialBannerCreateService implements AbstractCreateService<Sponsor, CommercialBanner> {
@@ -69,6 +70,15 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		//Validation of spam
+		String slogan;
+		boolean checkSloganSpam;
+		if (!errors.hasErrors("slogan")) {
+			slogan = entity.getSlogan();
+			checkSloganSpam = CheckSpamWords.isSpam(slogan, this.repository.findConfiguration());
+			errors.state(request, !checkSloganSpam, "slogan", "sponsor.commercialBanner.error.spam");
+		}
 
 	}
 

@@ -25,7 +25,15 @@ public class AdministratorAuditorRequestShowService implements AbstractShowServi
 	public boolean authorise(final Request<AuditorRequest> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int auditorRequestId;
+		AuditorRequest auditorRequest;
+
+		auditorRequestId = request.getModel().getInteger("id");
+		auditorRequest = this.repository.findOneById(auditorRequestId);
+		result = auditorRequest.getStatus().equals("pending");
+
+		return result;
 	}
 
 	@Override

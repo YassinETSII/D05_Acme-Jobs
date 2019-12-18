@@ -16,7 +16,7 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class WorkerJobListNotAppliedService implements AbstractListService<Worker, Job> {
+public class WorkerJobListAppliedService implements AbstractListService<Worker, Job> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -50,7 +50,7 @@ public class WorkerJobListNotAppliedService implements AbstractListService<Worke
 		Date d = c.getTime();
 
 		Collection<Job> result;
-		result = this.repository.findManyNotAppliedJobs(d, request.getPrincipal().getActiveRoleId());
+		result = this.repository.findManyAppliedJobs(d, request.getPrincipal().getActiveRoleId());
 
 		return result;
 

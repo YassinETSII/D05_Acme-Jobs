@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerRepository.java
+ * AuthenticatedEmployerRepository.java
  *
  * Copyright (c) 2019 Rafael Corchuelo.
  *

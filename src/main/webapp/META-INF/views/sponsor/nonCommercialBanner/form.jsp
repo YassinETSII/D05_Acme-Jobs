@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="sponsor.nonCommercialBanner.form.label.picture" path="picture"/>
+	<acme:form-url code="sponsor.nonCommercialBanner.form.label.picture" path="picture"/>
 	<acme:form-textbox code="sponsor.nonCommercialBanner.form.label.slogan" path="slogan"/>
 	<acme:form-url code="sponsor.nonCommercialBanner.form.label.url" path="URL"/>
 	<acme:form-textbox code="sponsor.nonCommercialBanner.form.label.jingle" path="jingle"/>

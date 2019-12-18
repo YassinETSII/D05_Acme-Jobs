@@ -30,7 +30,15 @@ public class AdministratorAuditorRequestUpdateService implements AbstractUpdateS
 	public boolean authorise(final Request<AuditorRequest> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int auditorRequestId;
+		AuditorRequest auditorRequest;
+
+		auditorRequestId = request.getModel().getInteger("id");
+		auditorRequest = this.repository.findOneById(auditorRequestId);
+		result = auditorRequest.getStatus().equals("pending");
+
+		return result;
 	}
 
 	@Override
@@ -40,6 +48,12 @@ public class AdministratorAuditorRequestUpdateService implements AbstractUpdateS
 		assert model != null;
 
 		request.unbind(entity, model, "firm", "responsibilityStatement", "user.identity.fullName", "status");
+
+		if (entity.getStatus() == "accepted") {
+			model.setAttribute("status", "accepted");
+		} else {
+			model.setAttribute("status", "rejected");
+		}
 	}
 
 	@Override

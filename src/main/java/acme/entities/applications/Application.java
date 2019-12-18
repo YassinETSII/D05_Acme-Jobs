@@ -28,7 +28,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "status"), @Index(columnList = "reference asc, status asc, moment desc"), @Index(columnList = "reference"), @Index(columnList = "status, moment")
+	@Index(columnList = "status"), @Index(columnList = "reference asc, status asc, moment desc"), @Index(columnList = "reference"), @Index(columnList = "status, moment"), @Index(columnList = "status, updateMoment")
 })
 public class Application extends DomainEntity {
 
@@ -46,6 +46,11 @@ public class Application extends DomainEntity {
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				moment;
+
+	//used only in time series application chart
+	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				updateMoment;
 
 	@NotBlank
 	@Pattern(regexp = "^pending|accepted|rejected$")

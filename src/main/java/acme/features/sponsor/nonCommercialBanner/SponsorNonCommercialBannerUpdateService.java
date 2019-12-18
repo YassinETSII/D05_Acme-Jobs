@@ -67,6 +67,14 @@ public class SponsorNonCommercialBannerUpdateService implements AbstractUpdateSe
 		assert errors != null;
 
 		//Validation of spam
+		String slogan;
+		boolean checkSloganSpam;
+		if (!errors.hasErrors("slogan")) {
+			slogan = entity.getSlogan();
+			checkSloganSpam = CheckSpamWords.isSpam(slogan, this.repository.findConfiguration());
+			errors.state(request, !checkSloganSpam, "slogan", "sponsor.nonCommercialBanner.error.spam");
+		}
+		//Validation of spam
 		String jingle;
 		boolean checkSpam;
 		if (!errors.hasErrors("jingle")) {

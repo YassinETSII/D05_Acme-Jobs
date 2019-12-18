@@ -74,6 +74,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		List<Long> countPendingApplications = new LinkedList<>();
 		List<Long> countAcceptedApplications = new LinkedList<>();
 		List<Long> countRejectedApplications = new LinkedList<>();
+
 		//--------------------------------------------------companies
 		Collection<Object[]> companies = this.repository.numCompaniesBySector();
 
@@ -121,6 +122,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 
 		result.setCountPendingApplications(countPendingApplications);
 		result.setMomentPendingApplications(momentPendingApplications.stream().map(m -> formatter.format(m)).collect(Collectors.toList()));
+
 		//--------------------------------------------------accepted applications
 		Collection<Object[]> accepted = this.repository.numAcceptedApplicationsPerDays(fourWeeks);
 

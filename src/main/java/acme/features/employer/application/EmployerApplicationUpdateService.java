@@ -49,7 +49,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "justification", "job.reference", "worker.identity.fullName");
+		request.unbind(entity, model, "reference", "status", "statement", "skills", "qualifications", "justification", "job.reference", "worker.identity.fullName");
 
 		if (entity.getStatus() == "accepted") {
 			model.setAttribute("status", "accepted");
@@ -78,7 +78,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "worker", "job");
+		request.bind(entity, errors, "worker", "job", "updateMoment");
 	}
 
 	@Override
@@ -98,9 +98,11 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 
-		Date moment;
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
+		if (entity.getStatus() != "pending") {
+			Date moment;
+			moment = new Date(System.currentTimeMillis() - 1);
+			entity.setUpdateMoment(moment);
+		}
 
 		this.repository.save(entity);
 	}

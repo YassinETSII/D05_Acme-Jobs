@@ -19,7 +19,7 @@
 	<acme:form-hidden path="noCreditCard"/>
 	<jstl:if test="${noCreditCard == false}">
 
-		<acme:form-textbox code="sponsor.commercialBanner.form.label.picture" path="picture"/>
+		<acme:form-url code="sponsor.commercialBanner.form.label.picture" path="picture"/>
 		<acme:form-textbox code="sponsor.commercialBanner.form.label.slogan" path="slogan"/>
 		<acme:form-url code="sponsor.commercialBanner.form.label.url" path="URL"/>
 		<acme:form-textbox code="sponsor.commercialBanner.form.label.holder" path="creditCard.holder" readonly = "true"/>
